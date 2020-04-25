@@ -2,6 +2,7 @@ package com.wjt.service;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Strings;
+import com.wjt.common.Constants;
 import com.wjt.model.PageModel;
 import com.wjt.model.TeacherModel;
 import org.apache.commons.collections.CollectionUtils;
@@ -9,6 +10,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriverService;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,6 +21,7 @@ import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.time.Duration;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -36,10 +42,25 @@ public class PageParseService {
     private WebDriver webDriver;
 
     public PageParseService() {
+
+/*        DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+        //ssl证书支持
+        desiredCapabilities.setCapability("acceptSslCerts", true);
+         //截屏支持，这里不需要
+        desiredCapabilities.setCapability("takesScreenshot", false);
+         //css搜索支持
+        desiredCapabilities.setCapability("cssSelectorsEnabled", true);
+        //js支持
+        desiredCapabilities.setJavascriptEnabled(true);
+        desiredCapabilities.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, Constants.PHANTOMJS_DRIVER_BIN);
+        webDriver = new PhantomJSDriver(desiredCapabilities);*/
+
         webDriver = new ChromeDriver();
-        webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS)
-                .setScriptTimeout(10, TimeUnit.SECONDS)
-                .pageLoadTimeout(10, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS)
+                .setScriptTimeout(30, TimeUnit.SECONDS)
+                .pageLoadTimeout(30, TimeUnit.SECONDS);
+
+        LOGGER.info("test;webDriver={};", webDriver);
 
     }
 
@@ -59,12 +80,17 @@ public class PageParseService {
 
         List<TeacherModel> teacherModelList = teacherElements.stream().map(teacherElement -> {
             try {
+
+
+                //teacherElement=webDriver.findElement(By.partialLinkText())
+
                 WebElement img = teacherElement.findElement(By.tagName("img"));
                 String alt = img.getAttribute("alt");
                 String src = img.getAttribute("src");
                 String url = teacherElement.findElement(By.className("node__links")).findElement(By.tagName("a")).getAttribute("href");
-
-                return new TeacherModel(alt, src, url, "");
+                //String detail = parseDetail(webDriver);
+                String detail = "";
+                return new TeacherModel(alt, src, url, detail);
             } catch (Exception e) {
                 LOGGER.info("parse error!pageUrl={};", pageUrl, e);
                 return new TeacherModel();
@@ -74,17 +100,41 @@ public class PageParseService {
 
         String nextPageUrl = "";
         try {
-            WebElement nextBtn = webDriver.findElement(By.className("pager__item--next")).findElement(By.xpath("//span[@aria-hidden=\"true\"]"));
+            //WebElement nextBtn = webDriver.findElement(By.className("pager__item--next")).findElement(By.xpath("//span[@aria-hidden=\"true\"]"));
+            WebElement nextBtn = webDriver.findElement(By.partialLinkText("下一个"));
+            //webDriver.navigate().forward();
             nextBtn.click();
             nextPageUrl = webDriver.getCurrentUrl();
+            LOGGER.info("nextPageUrl={};", nextPageUrl);
         } catch (Exception e) {
             LOGGER.error("find next btn error!pageUrl={};", pageUrl, e);
         }
 
         return new PageModel(pageUrl, nextPageUrl, teacherModelList);
     }
-    public void parseDetail(final String homeUrl){
 
+
+    public String parseDetail(final WebDriver webDriver) {
+
+        String detail = "", currentUrl = "";
+        //webDriver.navigate().to();
+        try {
+            webDriver.findElement(By.partialLinkText("阅读更多")).click();
+
+            LOGGER.info("currentUrl={};", (currentUrl = webDriver.getCurrentUrl()));
+            WebElement mainElement = webDriver.findElement(By.id("block-gaofan-content"));
+
+            List<WebElement> spanElements = mainElement.findElements(By.tagName("span"));
+            if (CollectionUtils.isNotEmpty(spanElements)) {
+                detail = Joiner.on("").join(spanElements.stream().map(spanElement -> spanElement.getText()).collect(Collectors.toList()));
+            }
+            webDriver.navigate().back();
+            LOGGER.info("backUrl={};", webDriver.getCurrentUrl());
+        } catch (Exception e) {
+            LOGGER.info("parse detail error!currentUrl={};", currentUrl, e);
+        }
+
+        return detail;
     }
 
     public void parseTeacherByPage() {
