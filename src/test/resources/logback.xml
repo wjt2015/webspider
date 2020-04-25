@@ -9,7 +9,8 @@
 <configuration scan="true" scanPeriod="60 seconds" debug="false">
 
     <!-- 定义日志文件 输入位置 这里的catalina.base是指Tomcat根目录 -->
-    <property name="log_dir" value="${catalina.base}/logs/web_train_logs/" />
+    <!--<property name="log_dir" value="${catalina.base}/logs/web_train_logs/" />-->
+    <property name="log_dir" value="docs/logs/" />
     <!-- 日志最大的历史 30天 -->
     <property name="maxHistory" value="30"/>
 
