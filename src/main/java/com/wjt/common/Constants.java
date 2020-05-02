@@ -17,7 +17,12 @@ import java.util.concurrent.TimeUnit;
  */
 public interface Constants {
 
-    String CHROME_DRIVER_BIN = "D:\\soft\\chromedriver\\chromedriver_win32_81\\chromedriver.exe";
+    //win10,
+    //String CHROME_DRIVER_BIN = "D:\\soft\\chromedriver\\chromedriver_win32_81\\chromedriver.exe";
+
+    //macos,
+
+    String CHROME_DRIVER_BIN = "/Users/wjt_weibo/linux2014/install_dir/chromedriver/chromedriver";
 
     String PHANTOMJS_DRIVER_BIN = "D:\\soft\\chromedriver\\phantomjs-2.5.0-beta2-windows\\bin\\phantomjs.exe";
 
