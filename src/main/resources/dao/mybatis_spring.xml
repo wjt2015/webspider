@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+    <context:property-placeholder location="classpath:dao/jdbc.properties"/>
+
+    <!--配置数据连接池-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${driverClassName}"/>
+        <property name="url" value="${wjt_train_jdbc_url}"/>
+        <property name="username" value="${username}"/>
+        <property name="password" value="${password}"/>
+        <property name="maxActive" value="${max_active}"/>
+        <property name="minIdle" value="${min_idle}"/>
+        <property name="defaultAutoCommit" value="${default_auto_commit}"/>
+        <property name="queryTimeout" value="${query_timeout}"/>
+    </bean>
+
+    <!-- 创建出sqlSessionFactory对象,配置sqlSessionFactory -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!-- 自动扫描mybatis_config文件目录 -->
+        <property name="configLocation" value="classpath:dao/mybatis_config.xml"/>
+        <!-- 注入数据库连接池 -->
+        <property name="dataSource" ref="dataSource"/>
+        <!-- 自动扫描mapper文件目录-->
+        <property name="mapperLocations">
+            <array>
+                <!--<value>classpath*:/mapper/*/*.xml</value>-->
+                <value>classpath*:mapper/*.xml</value>
+            </array>
+        </property>
+    </bean>
+
+    <!-- 配置扫描Dao接口包，动态实现Dao接口，注入到spring容器中 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!--注入sqlSessionFactory -->
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+        <!--给出需要扫描Dao接口包 -->
+        <property name="basePackage" value="com.wjt.dao"/>
+        <property name="annotationClass" value="org.springframework.stereotype.Repository"/>
+    </bean>
+
+    <!-- 开启基于注解的事务;mode=proxy可保证spring管理事务 -->
+    <tx:annotation-driven transaction-manager="transactionManager" mode="proxy" proxy-target-class="true" />
+    <!-- 配置事务管理器 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+
+    <!-- 面向切面配置 -->
+    <aop:config>
+        <!-- 定义切入点 -->
+        <aop:pointcut expression="execution(* com.wjt.*.*(..) )" id="pointCut"/>
+        <!-- pointcut和advice的配置器。是将advice注入程序中pointcut位置的代码 -->
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="pointCut"/>
+    </aop:config>
+
+    <!-- 定义哪些方法需要事物支持 -->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <!-- 传播行为 -->
+            <tx:method name="save*" propagation="REQUIRED" />
+            <tx:method name="insert*" propagation="REQUIRED" />
+            <tx:method name="add*" propagation="REQUIRED" />
+            <tx:method name="create*" propagation="REQUIRED" />
+            <tx:method name="delete*" propagation="REQUIRED" />
+            <tx:method name="update*" propagation="REQUIRED" />
+            <tx:method name="find*" propagation="SUPPORTS" read-only="true" />
+            <tx:method name="select*" propagation="SUPPORTS" read-only="true" />
+            <tx:method name="get*" propagation="SUPPORTS" read-only="true" />
+        </tx:attributes>
+    </tx:advice>
+
+
+    <!--    &lt;!&ndash; 事务管理 属性 &ndash;&gt;
+        <tx:advice id="transactionAdvice" transaction-manager="transactionManager">
+            <tx:attributes>
+                <tx:method name="find*" propagation="REQUIRED"/>
+                <tx:method name="get*" propagation="REQUIRED"/>
+                <tx:method name="add*" propagation="REQUIRED"/>
+                <tx:method name="save*" propagation="REQUIRED"/>
+                <tx:method name="insert*" propagation="REQUIRED"/>
+                <tx:method name="update*" propagation="REQUIRED"/>
+                <tx:method name="edit*" propagation="REQUIRED"/>
+                <tx:method name="delete*" propagation="REQUIRED"/>
+            </tx:attributes>
+        </tx:advice>-->
+
+    <!-- 配置切面 -->
+    <!--   <aop:config expose-proxy="true" proxy-target-class="true">
+            &lt;!&ndash;<aop:advisor advice-ref="transactionAdvice" pointcut="execution(* com.*.service..*.*(..))"/>&ndash;&gt;
+            <aop:advisor advice-ref="transactionAdvice" pointcut="execution(* com.wjt.service.*(..))"/>
+        </aop:config>-->
+
+
+</beans>
+
