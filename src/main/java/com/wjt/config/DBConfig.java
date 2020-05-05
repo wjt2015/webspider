@@ -9,9 +9,8 @@ import org.springframework.context.annotation.ImportResource;
  * @Description
  */
 @Configuration
-@ImportResource()
+@ImportResource(locations = {"classpath:dao/mybatis_spring.xml"})
 public class DBConfig {
-
 
 
 }

@@ -12,7 +12,7 @@ mvn mybatis-generator:generate
 
     <!--JDBC驱动jar包的位置-->
     <classPathEntry
-            location="C:/Users/17460/.m2/repository/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar"/>
+            location="/Users/wjt_weibo/.m2/repository/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar"/>
 
     <context id="default" targetRuntime="MyBatis3">
         <!--创建Java类时是否取消生成注释-->
@@ -84,18 +84,22 @@ mvn mybatis-generator:generate
                     <generatedKey column="id" sqlStatement="MySql" identity="true" />
                 </table>-->
 
-        <!--        <table tableName="login" domainObjectName="LoginEntity" mapperName="LoginMapper"
-                       enableCountByExample="false" enableUpdateByExample="false"
-                       enableDeleteByExample="false" enableSelectByExample="false"
-                       selectByExampleQueryId="false">
-                    <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-                    <columnOverride column="login_ts" jdbcType="TIMESTAMP" javaType="java.lang.Long" property="loginTs"
-                                    typeHandler="com.wjt.typehandler.LoginTsHandler"/>
+        <!--
+                        <table tableName="juejin_article" domainObjectName="JunjinArticleEntity" mapperName="JunjinArticleMapper"
+                               enableCountByExample="false" enableUpdateByExample="false"
+                               enableDeleteByExample="false" enableSelectByExample="false"
+                               selectByExampleQueryId="false">
+                            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
 
-                    <columnOverride column="available" jdbcType="TINYINT" javaType="com.wjt.enums.AvailableType"
-                                    property="available" typeHandler="com.wjt.typehandler.AvailableHandler"/>
 
-                </table>-->
+                           <columnOverride column="login_ts" jdbcType="TIMESTAMP" javaType="java.lang.Long" property="loginTs"
+                                            typeHandler="com.wjt.typehandler.LoginTsHandler"/>
+
+                            <columnOverride column="available" jdbcType="TINYINT" javaType="com.wjt.enums.AvailableType"
+                                            property="available" typeHandler="com.wjt.typehandler.AvailableHandler"/>
+
+                        </table>
+            -->
 
 
         <table tableName="none"/>
