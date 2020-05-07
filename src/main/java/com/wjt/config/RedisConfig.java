@@ -1,6 +1,7 @@
 package com.wjt.config;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import redis.clients.jedis.JedisPool;
@@ -15,7 +16,17 @@ import redis.clients.jedis.JedisPool;
 public class RedisConfig {
     @Bean
     public JedisPool jedisPool() {
-        JedisPool jedisPool = new JedisPool("localhost", 6379);
+
+        GenericObjectPoolConfig genericObjectPoolConfig = new GenericObjectPoolConfig();
+        genericObjectPoolConfig.setMaxWaitMillis(2000);
+        genericObjectPoolConfig.setMinIdle(5);
+        genericObjectPoolConfig.setMaxTotal(50);
+        genericObjectPoolConfig.setTestOnBorrow(true);
+        genericObjectPoolConfig.setTestOnCreate(true);
+        genericObjectPoolConfig.setMaxIdle(10);
+
+        JedisPool jedisPool = new JedisPool(genericObjectPoolConfig, "localhost", 6379);
+
 /*        String ret = jedisPool.getResource().auth("linux2014");
         log.info("auth_ret={};", ret);*/
         return jedisPool;
