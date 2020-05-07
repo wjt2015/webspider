@@ -3,8 +3,10 @@ package com.wjt;
 import com.google.common.collect.Lists;
 import com.wjt.common.Constants;
 import com.wjt.config.AppConfig;
+import com.wjt.config.ServiceConfig;
 import com.wjt.model.WebDriverTeam;
 import com.wjt.service.JDShoeService;
+import com.wjt.service.JueJinService;
 import com.wjt.service.PageParseService;
 import org.omg.SendingContext.RunTime;
 import org.openqa.selenium.By;
@@ -45,7 +47,24 @@ public class App {
         //seleniumB();
         //seleniumC();
         //seleniumD();
-        seleniumF();
+        //seleniumF();
+        juejinArticle();
+    }
+
+    public static void juejinArticle() {
+
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(ServiceConfig.class);
+
+        JueJinService jueJinService = ctx.getBean(JueJinService.class);
+        LOGGER.info("jueJinService={};", jueJinService);
+        //final String url = "https://juejin.im/post/5eae84daf265da7bf7328e25";
+        final String url = "https://juejin.im/post/5eae84daf265da7bf7328e25";
+        final long start = System.currentTimeMillis();
+        jueJinService.getJuejinArticles(url);
+
+        final long elapsed = System.currentTimeMillis() - start;
+        LOGGER.info("complete!elapsed={}ms;", elapsed);
+
     }
 
     public static void jd() {
