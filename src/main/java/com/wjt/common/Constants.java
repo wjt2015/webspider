@@ -22,9 +22,9 @@ public interface Constants {
 
     //macos,
 
-    String CHROME_DRIVER_BIN = "/Users/wjt_weibo/linux2014/install_dir/chromedriver/chromedriver";
+    String CHROME_DRIVER_BIN = "/Users/jintao9/linux2014/install_dir/chromedriver";
 
-    String PHANTOMJS_DRIVER_BIN = "D:\\soft\\chromedriver\\phantomjs-2.5.0-beta2-windows\\bin\\phantomjs.exe";
+    //String PHANTOMJS_DRIVER_BIN = "D:\\soft\\chromedriver\\phantomjs-2.5.0-beta2-windows\\bin\\phantomjs.exe";
 
     ExecutorService EXECUTOR_SERVICE = new ThreadPoolExecutor(5, 10, 100, TimeUnit.SECONDS, new ArrayBlockingQueue<>(500));
 
