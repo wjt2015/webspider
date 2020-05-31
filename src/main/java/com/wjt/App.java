@@ -58,7 +58,10 @@ public class App {
         JueJinService jueJinService = ctx.getBean(JueJinService.class);
         LOGGER.info("jueJinService={};", jueJinService);
         //final String url = "https://juejin.im/post/5eae84daf265da7bf7328e25";
-        final String url = "https://juejin.im/post/5eae84daf265da7bf7328e25";
+        //final String url = "https://juejin.im/post/5eae84daf265da7bf7328e25";
+        //final String url = "https://juejin.im/post/5ecf43f36fb9a047d37105f1";
+        //final String url = "https://juejin.im/post/5ed07227f265da76c424451f";
+        final String url = "https://juejin.im/post/5ecf12e66fb9a047d818359f";
         final long start = System.currentTimeMillis();
         jueJinService.getJuejinArticles(url);
 

@@ -1,6 +1,5 @@
 package com.wjt.service.impl;
 
-import com.google.common.base.Joiner;
 import com.wjt.common.CommonUtils;
 import com.wjt.common.Constants;
 import com.wjt.dao.JunjinArticleMapper;
@@ -8,10 +7,10 @@ import com.wjt.model.JunjinArticleEntity;
 import com.wjt.service.ExistChecker;
 import com.wjt.service.JueJinService;
 import com.wjt.task.JedisTask;
+import com.wjt.task.JedisWork;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.CollectionUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -46,19 +45,22 @@ public class JueJinServiceImpl implements JueJinService {
                 .pageLoadTimeout(20, TimeUnit.SECONDS)
                 .setScriptTimeout(20, TimeUnit.SECONDS);
 
+        //Jedis jedis = this.jedisPool.getResource();
+
         JedisTask jedisTask=new JedisTask() {
             @Override
             public Object doTask(JedisPool jedisPool) {
                 try (Jedis jedis=jedisPool.getResource()){
                     jedis.lpush(TO_USE_URL_LIST, startPageUrl);
-
                     //jedis.close();
                 }catch (Exception e){
+                    log.error("save redis error!startPageUrl={};",startPageUrl,e);
                 }
                 return null;
             }
         };
         jedisTask.doTask(jedisPool);
+
 
         String currentUrl;
         int n = 0;
@@ -78,6 +80,7 @@ public class JueJinServiceImpl implements JueJinService {
                 return newUrl;
             }
         };
+        jedisTask.doTask(jedisPool);
 
         while ((currentUrl = (String) (jedisTask.doTask(jedisPool))) != null && currentUrl.length() >= 5) {
             log.info("start to get!currentUrl={};", currentUrl);
@@ -89,6 +92,8 @@ public class JueJinServiceImpl implements JueJinService {
                 getCurPage(webDriver);
             } catch (Exception e) {
                 log.error("An exception occurs while getting page content!url={};", currentUrl, e);
+            }finally {
+                log.info("jedis_idle_count={};",jedisPool.getNumIdle());
             }
             log.info("complete current page;elapsed={}ms;currentUrl={};", (System.currentTimeMillis() - start), currentUrl);
 
@@ -116,7 +121,7 @@ public class JueJinServiceImpl implements JueJinService {
         JunjinArticleEntity junjinArticleEntity=new JunjinArticleEntity();
         junjinArticleEntity.title=title;
         junjinArticleEntity.url=currentUrl;
-        junjinArticleEntity.summary=content.substring(0,230);
+        junjinArticleEntity.summary=content.substring(0,1000);
         junjinArticleMapper.insertSelective(junjinArticleEntity);
 
         saveRecommendUrls(webDriver);

@@ -14,6 +14,9 @@ import redis.clients.jedis.JedisPool;
 @Slf4j
 @Configuration
 public class RedisConfig {
+
+
+
     @Bean
     public JedisPool jedisPool() {
 
