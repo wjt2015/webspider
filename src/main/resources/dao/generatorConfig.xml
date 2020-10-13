@@ -12,7 +12,7 @@ mvn mybatis-generator:generate
 
     <!--JDBC驱动jar包的位置-->
     <classPathEntry
-            location="/Users/wjt_weibo/.m2/repository/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar"/>
+            location="/Users/jintao9/.m2/repository/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar"/>
 
     <context id="default" targetRuntime="MyBatis3">
         <!--创建Java类时是否取消生成注释-->
