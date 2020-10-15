@@ -8,6 +8,7 @@ import com.wjt.model.JunjinArticleEntity;
 import com.wjt.service.ExistChecker;
 import com.wjt.service.JueJinService;
 import com.wjt.task.JedisTask;
+import com.wjt.task.MyJedisTask;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.CollectionUtils;
 import org.openqa.selenium.By;
@@ -18,6 +19,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.springframework.stereotype.Service;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
+import redis.clients.jedis.MyJedis;
+import redis.clients.jedis.MyJedisPool;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -35,6 +38,9 @@ public class JueJinServiceImpl implements JueJinService {
     private JedisPool jedisPool;
 
     @Resource
+    private MyJedisPool myJedisPool;
+
+    @Resource
     private ExistChecker existChecker;
 
     private final String TO_USE_URL_LIST = "to_use_url_list";
@@ -46,40 +52,26 @@ public class JueJinServiceImpl implements JueJinService {
                 .pageLoadTimeout(20, TimeUnit.SECONDS)
                 .setScriptTimeout(20, TimeUnit.SECONDS);
 
-        JedisTask jedisTask=new JedisTask() {
+        new MyJedisTask() {
             @Override
-            public Object doTask(JedisPool jedisPool) {
-                try (Jedis jedis=jedisPool.getResource()){
-                    jedis.lpush(TO_USE_URL_LIST, startPageUrl);
-
-                    //jedis.close();
-                }catch (Exception e){
-                }
+            public Object doTask(MyJedis myJedis, Object o) {
+                myJedis.lpush(TO_USE_URL_LIST, startPageUrl);
                 return null;
             }
-        };
-        jedisTask.doTask(jedisPool);
+        }.doTask(myJedisPool,null);
 
         String currentUrl;
         int n = 0;
         final long startTime = System.currentTimeMillis();
 
-        jedisTask = new JedisTask() {
+        final MyJedisTask myJedisTask=new MyJedisTask() {
             @Override
-            public Object doTask(JedisPool jedisPool) {
-                String newUrl = null;
-                try (Jedis jedis = jedisPool.getResource()) {
-                    newUrl = jedis.rpop(TO_USE_URL_LIST);
-
-                    //jedis.close();
-                } catch (Exception e) {
-                    log.error("rpop url from redis error!", e);
-                }
-                return newUrl;
+            public Object doTask(MyJedis myJedis, Object o) {
+                return myJedis.rpop(TO_USE_URL_LIST);
             }
         };
 
-        while ((currentUrl = (String) (jedisTask.doTask(jedisPool))) != null && currentUrl.length() >= 5) {
+        while ((currentUrl = (String) (myJedisTask.doTask(myJedisPool,null))) != null && currentUrl.length() >= 5) {
             log.info("start to get!currentUrl={};", currentUrl);
             n++;
             final long start = System.currentTimeMillis();
@@ -127,7 +119,6 @@ public class JueJinServiceImpl implements JueJinService {
     private void saveRecommendUrls(WebDriver webDriver) {
 
         //CommonUtils.sleep((Constants.RANDOM.nextInt(15) + 16) * 1000);
-
         final String currentUrl = webDriver.getCurrentUrl();
         for (int i = 0, n = 3; i < n; i++) {
             CommonUtils.scrollToBottom(webDriver);
@@ -148,18 +139,13 @@ public class JueJinServiceImpl implements JueJinService {
         log.info("after;recommendUrls.size={};recommendUrls={};", recommendUrls.size(), recommendUrls);
 
         if (CollectionUtils.isNotEmpty(recommendUrls)) {
-            JedisTask jedisTask = new JedisTask() {
+            new MyJedisTask(){
                 @Override
-                public Object doTask(JedisPool jedisPool) {
-                    try (Jedis jedis = jedisPool.getResource()) {
-                        jedis.lpush(TO_USE_URL_LIST, recommendUrls.toArray(new String[recommendUrls.size()]));
-                    } catch (Exception e) {
-                        log.error("push new url to list!recommendUrls={};", recommendUrls, e);
-                    }
+                public Object doTask(MyJedis myJedis, Object o) {
+                    myJedis.lpush(TO_USE_URL_LIST, recommendUrls.toArray(new String[recommendUrls.size()]));
                     return null;
                 }
-            };
-            jedisTask.doTask(jedisPool);
+            }.doTask(myJedisPool,null);
         }
 
     }
