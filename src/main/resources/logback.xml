@@ -12,7 +12,7 @@
     <!--<property name="log_dir" value="${catalina.base}/logs/web_train_logs/" />-->
     <property name="log_dir" value="docs/logs/" />
     <!-- 日志最大的历史 30天 -->
-    <property name="maxHistory" value="30"/>
+    <property name="maxHistory" value="10"/>
 
     <!-- ConsoleAppender 控制台输出日志 -->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
