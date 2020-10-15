@@ -1,5 +1,7 @@
 package com.wjt.model;
 
+import lombok.Data;
+
 import java.util.Date;
 
 /**
@@ -17,6 +19,8 @@ import java.util.Date;
 
 
  */
+
+@Data
 public class JunjinArticleEntity {
     public Long id;
 

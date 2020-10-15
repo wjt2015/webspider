@@ -31,7 +31,20 @@ public class DBConfigTest {
         int ret = junjinArticleMapper.insertSelective(junjinArticleEntity);
 
         log.info("ret={};", ret);
+    }
+
+    @Test
+    public void select(){
+        long id=1L;
+        JunjinArticleEntity junjinArticleEntity = junjinArticleMapper.selectByPrimaryKey(id);
+        log.info("junjinArticleEntity={};",junjinArticleEntity);
+
+        id=5L;
+        junjinArticleEntity = junjinArticleMapper.selectByPrimaryKey(id);
+        log.info("junjinArticleEntity={};",junjinArticleEntity);
 
     }
 
 }
+
+
