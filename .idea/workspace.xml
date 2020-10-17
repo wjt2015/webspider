@@ -57,8 +57,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/wjt/service/impl/JueJinServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="41" column="59" selection-start-line="41" selection-start-column="44" selection-end-line="41" selection-end-column="59" />
+            <state relative-caret-position="160">
+              <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
             </state>
           </provider>
         </entry>
@@ -776,7 +776,7 @@
       <workItem from="1602561804483" duration="766000" />
       <workItem from="1602774242597" duration="5894000" />
       <workItem from="1602815616520" duration="22589000" />
-      <workItem from="1602924884240" duration="504000" />
+      <workItem from="1602924884240" duration="539000" />
     </task>
     <servers />
   </component>
@@ -813,13 +813,12 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="180634000" />
+    <option name="totallyTimeSpent" value="180669000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="806" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23247497" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23247497" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -834,7 +833,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49932975" weight="0.26967594" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.49932975" visible="true" weight="0.26890758" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50067025" side_tool="true" weight="0.329235" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" />
@@ -1316,8 +1315,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/wjt/service/impl/JueJinServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="41" column="59" selection-start-line="41" selection-start-column="44" selection-end-line="41" selection-end-column="59" />
+        <state relative-caret-position="160">
+          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
         </state>
       </provider>
     </entry>
