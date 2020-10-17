@@ -55,7 +55,7 @@ public class JDShoeService {
             if (Strings.isNullOrEmpty(curPageUrl)) {
                 break;
             }
-            //webDriverTeam.doTask(new JDShoePageTask(curPageUrl, jedisPool));
+            //webDriverTeam.doJedisTask(new JDShoePageTask(curPageUrl, jedisPool));
             webDriverWorker.doTask(new JDShoePageTask(curPageUrl, jedisPool));
         }
     }

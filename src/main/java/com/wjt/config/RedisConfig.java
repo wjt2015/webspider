@@ -34,18 +34,18 @@ public class RedisConfig {
     }
 
     @Bean
-    public MyJedisPool myJedisPool(){
+    public MyJedisPool myJedisPool() {
         GenericObjectPoolConfig genericObjectPoolConfig = new GenericObjectPoolConfig();
-        genericObjectPoolConfig.setMaxWaitMillis(2000);
+        genericObjectPoolConfig.setMaxWaitMillis(100);
         genericObjectPoolConfig.setMinIdle(5);
-        genericObjectPoolConfig.setMaxTotal(50);
+        genericObjectPoolConfig.setMaxTotal(100);
         genericObjectPoolConfig.setTestOnBorrow(true);
         genericObjectPoolConfig.setTestOnCreate(true);
-        genericObjectPoolConfig.setMaxIdle(10);
+        //genericObjectPoolConfig.setMaxIdle(10);
 
-        MyJedisPool myJedisPool=new MyJedisPool(genericObjectPoolConfig,"localhost",6379);
+        MyJedisPool myJedisPool = new MyJedisPool(genericObjectPoolConfig, "localhost", 6379);
 
-        log.info("myJedisPool={};",myJedisPool);
+        log.info("myJedisPool={};", myJedisPool);
         return myJedisPool;
     }
 

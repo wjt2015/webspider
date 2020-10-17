@@ -10,7 +10,7 @@ public abstract class MyJedisTask {
         final long start = System.currentTimeMillis();
         Object ret = null;
         try (MyJedis myJedis = myJedisPool.getResource()) {
-            ret = doTask(myJedis, obj);
+            ret = doJedisTask(myJedis, obj);
         } catch (Exception e) {
             log.error("myJedisTask_error!args={};", obj, e);
         } finally {
@@ -19,5 +19,5 @@ public abstract class MyJedisTask {
         return ret;
     }
 
-    public abstract Object doTask(final MyJedis myJedis, final Object o);
+    protected abstract Object doJedisTask(final MyJedis myJedis, final Object o);
 }

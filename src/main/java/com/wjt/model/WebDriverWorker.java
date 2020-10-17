@@ -32,7 +32,7 @@ public class WebDriverWorker {
             webDriver.quit();
             return ret;
         } catch (Exception e) {
-            log.error("doTask error!task={};", task, e);
+            log.error("doJedisTask error!task={};", task, e);
             return false;
         }
     }

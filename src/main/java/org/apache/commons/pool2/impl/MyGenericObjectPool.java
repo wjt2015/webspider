@@ -658,6 +658,10 @@ public class MyGenericObjectPool<T> extends BaseGenericObjectPool<T>
      */
     @Override
     public void clear() {
+        final long start = System.currentTimeMillis();
+        final int idleObjectSize = idleObjects.size();
+        final int allObjectSize = allObjects.size();
+
         PooledObject<T> p = idleObjects.poll();
 
         while (p != null) {
@@ -668,6 +672,7 @@ public class MyGenericObjectPool<T> extends BaseGenericObjectPool<T>
             }
             p = idleObjects.poll();
         }
+        log.info("clear_finish!allObjectSize={};idleObjectSize={};elapsed={}ms;", allObjectSize, idleObjectSize, (System.currentTimeMillis() - start));
     }
 
     @Override

@@ -29,7 +29,9 @@
     </bean>
 
     <!-- 创建出sqlSessionFactory对象,配置sqlSessionFactory -->
-    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+<!--    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">-->
+
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.MySqlSessionFactoryBean">
         <!-- 自动扫描mybatis_config文件目录 -->
         <property name="configLocation" value="classpath:dao/mybatis_config.xml"/>
         <!-- 注入数据库连接池 -->
@@ -44,7 +46,8 @@
     </bean>
 
     <!-- 配置扫描Dao接口包，动态实现Dao接口，注入到spring容器中 -->
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+   <!-- <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+    <bean class="org.mybatis.spring.mapper.MyMapperScannerConfigurer">
         <!--注入sqlSessionFactory -->
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
         <!--给出需要扫描Dao接口包 -->

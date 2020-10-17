@@ -1,23 +1,19 @@
 package com.wjt.service.impl;
 
-import com.google.common.base.Joiner;
 import com.wjt.common.CommonUtils;
 import com.wjt.common.Constants;
 import com.wjt.dao.JunjinArticleMapper;
 import com.wjt.model.JunjinArticleEntity;
 import com.wjt.service.ExistChecker;
 import com.wjt.service.JueJinService;
-import com.wjt.task.JedisTask;
 import com.wjt.task.MyJedisTask;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.CollectionUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.springframework.stereotype.Service;
-import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.MyJedis;
 import redis.clients.jedis.MyJedisPool;
@@ -54,7 +50,7 @@ public class JueJinServiceImpl implements JueJinService {
 
         new MyJedisTask() {
             @Override
-            public Object doTask(MyJedis myJedis, Object o) {
+            public Object doJedisTask(MyJedis myJedis, Object o) {
                 myJedis.lpush(TO_USE_URL_LIST, startPageUrl);
                 return null;
             }
@@ -66,7 +62,7 @@ public class JueJinServiceImpl implements JueJinService {
 
         final MyJedisTask myJedisTask=new MyJedisTask() {
             @Override
-            public Object doTask(MyJedis myJedis, Object o) {
+            public Object doJedisTask(MyJedis myJedis, Object o) {
                 return myJedis.rpop(TO_USE_URL_LIST);
             }
         };
@@ -141,7 +137,7 @@ public class JueJinServiceImpl implements JueJinService {
         if (CollectionUtils.isNotEmpty(recommendUrls)) {
             new MyJedisTask(){
                 @Override
-                public Object doTask(MyJedis myJedis, Object o) {
+                public Object doJedisTask(MyJedis myJedis, Object o) {
                     myJedis.lpush(TO_USE_URL_LIST, recommendUrls.toArray(new String[recommendUrls.size()]));
                     return null;
                 }
