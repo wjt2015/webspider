@@ -9,10 +9,13 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
+import java.lang.reflect.Proxy;
 import java.sql.Connection;
 import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
@@ -71,26 +74,81 @@ public class DBConfigTest {
      * @throws ClassNotFoundException
      */
     @Test
-    public void jdbc() throws ClassNotFoundException {
+    public void jdbc() {
 
-        final String url="";
+        //final String url="jdbc:mysql://127.0.0.1:3306/web_train?useAffectedRows=true&allowMultiQueries=true&characterEncoding=utf8&useUnicode=true&useSSL=false&serverTimezone=Asia/Shanghai&autoReconnect=true&failOverReadOnly=false&maxReconnects=10&connectTimeout=1000&socketTimeout=1000&autoReconnect=true";
+        final String url="jdbc:mysql://127.0.0.1:3306/web_train";
+
         final Properties properties=new Properties();
-        final String sql="";
+        //useAffectedRows=true&allowMultiQueries=true&characterEncoding=utf8&useUnicode=true&useSSL=false&serverTimezone=Asia/Shanghai&autoReconnect=true&failOverReadOnly=false&maxReconnects=10&connectTimeout=1000&socketTimeout=1000&autoReconnect=true
+        properties.setProperty("username","root");
+        properties.setProperty("password","linux2014");
 
-        Class.forName("");
+        final String sql="insert into juejin_article(title,url,summary) values(?,?,?)";
+        final String driverClassName="com.mysql.cj.jdbc.Driver";
+
+        //加载mysql驱动;
+        try {
+            Class.forName(driverClassName);
+        } catch (ClassNotFoundException e) {
+            log.error("load driver class error!",e);
+        }
+        //建立mysql连接;
         try (Connection conn = DriverManager.getConnection(url, properties)){
             conn.setAutoCommit(true);
 
-            final Statement stmt = conn.createStatement();
+            //插入记录;
+            new MySqlConnTask(){
+                @Override
+                public Object doTask(Connection conn, Object obj) {
+
+                    try (PreparedStatement preparedStatement = conn.prepareStatement(sql, new int[]{1, 2, 3})){
+
+                        preparedStatement.setString(1,"RocketMQ架构");
+                        preparedStatement.setString(2,"https://juejin.im/post/6844903830874750990");
+                        preparedStatement.setString(3,"Apache RocketMQ是一个分布式消息和流处理平台，具有低延迟，高性能和高可靠性，亿万级容量和灵活的可扩展性。它由四部分组成：名称服务器，代理服务器，生产者和消费者。它们中的每一个都可以水平扩展，而不会出现单点故障。如上图所示。");
+
+                        int update = preparedStatement.executeUpdate();
+                        ResultSet resultSet = preparedStatement.getResultSet();
+
+                        log.info("update={};resultSet={};",update,resultSet);
+                    } catch (SQLException e) {
+                        log.error("preparedStatement error!",e);
+                    }
+
+                    return null;
+                }
+            }.doTask(conn,null);
+
 
         }catch (Exception e){
-            log.error("db conn error!");
+            log.error("db conn error!",e);
         }finally {
 
         }
+    }
+
+    /**
+     * 利用mysql连接执行任务;
+     */
+    static interface MySqlConnTask{
+        Object doTask(final Connection conn,Object obj);
+    }
+
+
+
+    /**
+     * 参考(https://ke.qq.com/webcourse/index.html#cid=2024404&term_id=102125540&taid=8106965521589204);
+     */
+    @Test
+    public void mybatisProxy(){
+
+        Proxy proxy;
+
 
 
     }
+
 
 }
 
