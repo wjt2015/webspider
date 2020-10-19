@@ -464,9 +464,12 @@ public class MySqlSessionFactoryBean implements FactoryBean<SqlSessionFactory>, 
         if (!isEmpty(this.typeHandlers)) {
             for (TypeHandler<?> typeHandler : this.typeHandlers) {
                 configuration.getTypeHandlerRegistry().register(typeHandler);
-                if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug("Registered type handler: '" + typeHandler + "'");
+
+/*                if (LOGGER.isDebugEnabled()) {
                     LOGGER.debug("Registered type handler: '" + typeHandler + "'");
-                }
+                }*/
+
             }
         }
 

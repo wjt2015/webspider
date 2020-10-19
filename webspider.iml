@@ -123,7 +123,6 @@
     <orderEntry type="library" name="Maven: us.codecraft:xsoup:0.3.1" level="project" />
     <orderEntry type="library" name="Maven: org.assertj:assertj-core:1.5.0" level="project" />
     <orderEntry type="library" name="Maven: commons-collections:commons-collections:3.2.2" level="project" />
-    <orderEntry type="library" name="Maven: org.jsoup:jsoup:1.10.3" level="project" />
     <orderEntry type="library" name="Maven: com.jayway.jsonpath:json-path:2.4.0" level="project" />
     <orderEntry type="library" name="Maven: net.minidev:json-smart:2.3" level="project" />
     <orderEntry type="library" name="Maven: net.minidev:accessors-smart:1.2" level="project" />
@@ -131,6 +130,7 @@
     <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.28" level="project" />
     <orderEntry type="library" name="Maven: us.codecraft:webmagic-extension:0.7.3" level="project" />
     <orderEntry type="library" name="Maven: us.codecraft:webmagic-selenium:0.7.3" level="project" />
+    <orderEntry type="library" name="Maven: org.jsoup:jsoup:1.12.1" level="project" />
     <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-java:3.10.0" level="project" />
     <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-edge-driver:3.10.0" level="project" />
     <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-firefox-driver:3.10.0" level="project" />

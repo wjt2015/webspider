@@ -11,6 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import javax.annotation.Resource;
 import java.lang.reflect.Proxy;
 import java.sql.Connection;
+import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -76,18 +77,14 @@ public class DBConfigTest {
      */
     @Test
     public void jdbc() {
-
         final String url = "jdbc:mysql://127.0.0.1:3306/web_train?useAffectedRows=true&allowMultiQueries=true&characterEncoding=utf8&useUnicode=true&useSSL=false&serverTimezone=Asia/Shanghai&autoReconnect=true&failOverReadOnly=false&maxReconnects=10&connectTimeout=1000&socketTimeout=1000&autoReconnect=true";
         //final String url="jdbc:mysql://127.0.0.1:3306/web_train";
-
         final Properties properties = new Properties();
         //useAffectedRows=true&allowMultiQueries=true&characterEncoding=utf8&useUnicode=true&useSSL=false&serverTimezone=Asia/Shanghai&autoReconnect=true&failOverReadOnly=false&maxReconnects=10&connectTimeout=1000&socketTimeout=1000&autoReconnect=true
         properties.setProperty("user", "root");
         properties.setProperty("password", "linux2014");
 
-        final String sql = "insert into juejin_article(title,url,summary) values(?,?,?)";
         final String driverClassName = "com.mysql.cj.jdbc.Driver";
-
         //加载mysql驱动;
         try {
             Class.forName(driverClassName);
@@ -98,31 +95,13 @@ public class DBConfigTest {
         try (Connection conn = DriverManager.getConnection(url, properties)) {
             conn.setAutoCommit(true);
 
+            DatabaseMetaData databaseMetaData = conn.getMetaData();
+            int holdability = conn.getHoldability();
 
-         /*   //插入记录;
-            new MySqlConnTask() {
-                @Override
-                public Object doTask(Connection conn, Object obj) {
+            log.info("typeMap={};", conn.getTypeMap());
 
-                    try (PreparedStatement preparedStatement = conn.prepareStatement(sql, new int[]{1, 2, 3})) {
-
-                        preparedStatement.setString(1, "RocketMQ架构");
-                        preparedStatement.setString(2, "https://juejin.im/post/6844903830874750990");
-                        preparedStatement.setString(3, "Apache RocketMQ是一个分布式消息和流处理平台，具有低延迟，高性能和高可靠性，亿万级容量和灵活的可扩展性。它由四部分组成：名称服务器，代理服务器，生产者和消费者。它们中的每一个都可以水平扩展，而不会出现单点故障。如上图所示。");
-
-                        int update = preparedStatement.executeUpdate();
-                        ResultSet resultSet = preparedStatement.getResultSet();
-
-                        log.info("update={};resultSet={};", update, resultSet);
-                    } catch (SQLException e) {
-                        log.error("preparedStatement error!", e);
-                    }
-
-                    return null;
-                }
-            }.doTask(conn, null);*/
-
-         deleteTask(conn);
+            insertTask(conn);
+            //deleteTask(conn);
 
         } catch (Exception e) {
             log.error("db conn error!", e);
@@ -130,6 +109,54 @@ public class DBConfigTest {
 
         }
     }
+
+    private static void insertTask(final Connection conn) {
+        final String sql = "insert into juejin_article(title,url,summary) values(?,?,?)";
+        //conn.setTransactionIsolation();
+        //插入记录;
+        new MySqlConnTask() {
+            @Override
+            public Object doTask(Connection conn, Object obj) {
+
+                try (PreparedStatement preparedStatement = conn.prepareStatement(sql, new int[]{1, 2, 3})) {
+
+                    preparedStatement.setString(1, "RocketMQ架构");
+                    preparedStatement.setString(2, "https://juejin.im/post/6844903830874750990");
+                    preparedStatement.setString(3, "Apache RocketMQ是一个分布式消息和流处理平台，具有低延迟，高性能和高可靠性，亿万级容量和灵活的可扩展性。它由四部分组成：名称服务器，代理服务器，生产者和消费者。它们中的每一个都可以水平扩展，而不会出现单点故障。如上图所示。");
+
+                    int update = preparedStatement.executeUpdate();
+                    ResultSet resultSet = preparedStatement.getResultSet();
+                    ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
+                    log.info("update={};resultSet={};generatedKeys={};", update, resultSet, generatedKeys);
+
+                    //resultSet(resultSet);
+                    resultSet(generatedKeys,new int[]{1});
+
+                } catch (SQLException e) {
+                    log.error("preparedStatement error!", e);
+                }
+
+                return null;
+            }
+        }.doTask(conn, null);
+    }
+
+    private static void resultSet(final ResultSet resultSet,final int[] columnIdxes) {
+        try {
+            while (resultSet.next()) {
+                //log.info("resultSet={};", resultSet);
+                final StringBuilder stringBuilder=new StringBuilder();
+                for (int idx:columnIdxes){
+                    stringBuilder.append(resultSet.getObject(idx)).append(",");
+                }
+                log.info("row={};",stringBuilder.toString());
+            }
+        } catch (Exception e) {
+            log.error("resultSet error!", e);
+        }
+
+    }
+
 
     private static void deleteTask(final Connection conn) {
 
@@ -141,7 +168,7 @@ public class DBConfigTest {
             log.info("update={};", update);
 
         } catch (Exception e) {
-            log.error("preparedStatement error!",e);
+            log.error("preparedStatement error!", e);
         } finally {
 
         }
