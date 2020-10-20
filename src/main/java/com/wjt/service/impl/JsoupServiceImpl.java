@@ -27,10 +27,13 @@ public class JsoupServiceImpl implements JsoupService {
 
         try {
             Document doc = conn.get();
+
             doc.charset(Charset.forName("utf8"));
 
             String title = doc.title();
             Element body = doc.body();
+            
+
             Elements elements = body.getElementsByClass("in_T");
 
             //log.info("title={};body={};elements.size={};", title, body,elements.size());

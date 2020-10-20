@@ -10,6 +10,7 @@ import com.wjt.task.MyJedisTask;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.CollectionUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -84,6 +85,45 @@ public class JueJinServiceImpl implements JueJinService {
         webDriver.quit();
         log.info("complete all pages;elapsed={}ms;n={};", (System.currentTimeMillis() - startTime), n);
     }
+
+    @Override
+    public void saveRelationship(String url) {
+        final ChromeDriver webDriver=new ChromeDriver();
+        webDriver.manage().timeouts().pageLoadTimeout(2,TimeUnit.SECONDS)
+                .setScriptTimeout(2,TimeUnit.SECONDS)
+        .implicitlyWait(2,TimeUnit.SECONDS);
+
+        try {
+            webDriver.get(url);
+
+            //webDriver.manage().window().setPosition(new Point(1000,1000));
+
+            //下拉页面;
+            //webDriver.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+            webDriver.executeScript("window.scrollTo(0, document.body.scrollHeight/2);");
+
+            CommonUtils.sleep(3000);
+
+            List<WebElement> webElementList = webDriver.findElements(By.tagName("a"));
+            if(CollectionUtils.isNotEmpty(webElementList)){
+                webElementList.forEach(webElement -> {
+
+                    String href = webElement.getAttribute("href");
+                    if(href!=null){
+                        log.info("href={};",href);
+                    }
+
+                });
+            }
+        }catch (Exception e){
+            log.error("webDriver error!",e);
+        }finally {
+            webDriver.quit();
+
+        }
+    }
+
+
 
 
     private void getCurPage(WebDriver webDriver) throws Exception {
