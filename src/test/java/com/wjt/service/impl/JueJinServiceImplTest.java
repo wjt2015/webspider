@@ -52,6 +52,11 @@ public class JueJinServiceImplTest {
     public void saveRelationship(){
         final String startUrl="https://uland.taobao.com/sem/tbsearch?refpid=mm_26632258_3504122_32538762&clk1=3bab53c4056adfaf56cccea3ff80bea4&keyword=%E9%AB%98%E8%B7%9F%E9%9E%8B&page=0";
         jueJinService.saveRelationship(startUrl);
-
     }
+
+
+
+
+
+
 }

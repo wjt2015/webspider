@@ -15,33 +15,20 @@
  */
 package org.mybatis.spring;
 
-import static org.springframework.util.Assert.notNull;
-import static org.springframework.util.Assert.state;
-import static org.springframework.util.ObjectUtils.isEmpty;
-import static org.springframework.util.StringUtils.hasLength;
-import static org.springframework.util.StringUtils.tokenizeToStringArray;
-
-import java.io.IOException;
-import java.sql.SQLException;
-import java.util.Properties;
-
-import javax.sql.DataSource;
-
+import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.builder.xml.XMLConfigBuilder;
 import org.apache.ibatis.builder.xml.XMLMapperBuilder;
 import org.apache.ibatis.cache.Cache;
 import org.apache.ibatis.executor.ErrorContext;
 import org.apache.ibatis.io.VFS;
-import org.apache.ibatis.logging.Log;
-import org.apache.ibatis.logging.LogFactory;
 import org.apache.ibatis.mapping.DatabaseIdProvider;
 import org.apache.ibatis.mapping.Environment;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.reflection.factory.ObjectFactory;
 import org.apache.ibatis.reflection.wrapper.ObjectWrapperFactory;
 import org.apache.ibatis.session.Configuration;
-import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.MySqlSessionFactoryBuilder;
+import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.transaction.TransactionFactory;
 import org.apache.ibatis.type.TypeHandler;
 import org.mybatis.spring.transaction.SpringManagedTransactionFactory;
@@ -56,6 +43,17 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.core.NestedIOException;
 import org.springframework.core.io.Resource;
 import org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy;
+
+import javax.sql.DataSource;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.Properties;
+
+import static org.springframework.util.Assert.notNull;
+import static org.springframework.util.Assert.state;
+import static org.springframework.util.ObjectUtils.isEmpty;
+import static org.springframework.util.StringUtils.hasLength;
+import static org.springframework.util.StringUtils.tokenizeToStringArray;
 
 /**
  * {@code FactoryBean} that creates an MyBatis {@code SqlSessionFactory}.
@@ -74,6 +72,7 @@ import org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy;
  * @see #setConfigLocation
  * @see #setDataSource
  */
+@Slf4j
 public class MySqlSessionFactoryBean implements FactoryBean<SqlSessionFactory>, InitializingBean, ApplicationListener<ApplicationEvent> {
 
     //private static final Log LOGGER = LogFactory.getLog(MySqlSessionFactoryBean.class);
@@ -308,6 +307,7 @@ public class MySqlSessionFactoryBean implements FactoryBean<SqlSessionFactory>, 
      * passed in, it will be unwrapped to extract its target {@code DataSource}.
      */
     public void setDataSource(DataSource dataSource) {
+
         if (dataSource instanceof TransactionAwareDataSourceProxy) {
             // If we got a TransactionAwareDataSourceProxy, we need to perform
             // transactions for its underlying target DataSource, else data
@@ -363,12 +363,16 @@ public class MySqlSessionFactoryBean implements FactoryBean<SqlSessionFactory>, 
      */
     @Override
     public void afterPropertiesSet() throws Exception {
+        final long start=System.currentTimeMillis();
+        log.info("afterPropertiesSet start!");
+
         notNull(dataSource, "Property 'dataSource' is required");
         notNull(sqlSessionFactoryBuilder, "Property 'sqlSessionFactoryBuilder' is required");
         state((configuration == null && configLocation == null) || !(configuration != null && configLocation != null),
                 "Property 'configuration' and 'configLocation' can not specified with together");
-
         this.sqlSessionFactory = buildSqlSessionFactory();
+        log.info("afterPropertiesSet finish!elapsed={}ms;",(System.currentTimeMillis()-start));
+
     }
 
     /**

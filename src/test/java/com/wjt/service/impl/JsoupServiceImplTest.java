@@ -25,4 +25,11 @@ public class JsoupServiceImplTest {
         String url="http://computer.upc.edu.cn/2017/0321/c6289a107120/page.htm";
         jsoupService.saveUniversityDetail(url);
     }
+
+    @Test
+    public void saveBingmayongBBS(){
+        String url="http://bbs.xjtu.edu.cn/BMY_B/";
+        url="https://bbs.fudan.edu.cn/v18/tdoc?board=Magpie_Bridge";
+        jsoupService.saveBingmayongBBS(url);
+    }
 }

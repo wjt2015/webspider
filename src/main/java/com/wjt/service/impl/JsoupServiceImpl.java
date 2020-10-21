@@ -10,6 +10,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
@@ -65,5 +66,28 @@ public class JsoupServiceImpl implements JsoupService {
         } catch (Exception e) {
             log.error("get doc error!url={};", url, e);
         }
+    }
+
+    @Override
+    public void saveBingmayongBBS(String url) {
+
+
+        Document document = null;
+        try {
+            document = Jsoup.connect(url).get();
+        } catch (IOException e) {
+            log.error("jsoup error!",e);
+        }
+        log.info("doc={};",document);
+        String selector="#b-n > a";
+        Elements elements = document.select(selector);
+        Elements prevElement = document.getElementsMatchingText("旧页");
+        log.info("prevElement={};",prevElement);
+        log.info("elements={};",elements);
+        for (Element element:elements){
+            log.info("e={};",element);
+        }
+
+
     }
 }

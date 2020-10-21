@@ -3,13 +3,22 @@ package com.wjt.config;
 import com.wjt.dao.JunjinArticleMapper;
 import com.wjt.model.JunjinArticleEntity;
 import lombok.extern.slf4j.Slf4j;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mybatis.spring.MySqlSessionFactoryBean;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
+import java.io.BufferedInputStream;
 import java.lang.reflect.Proxy;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
@@ -17,6 +26,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -159,14 +169,12 @@ public class DBConfigTest {
 
 
     private static void deleteTask(final Connection conn) {
-
         final String sql = "delete from juejin_article where id = ?";
 
         try (PreparedStatement preparedStatement = conn.prepareStatement(sql, new int[]{1, 2, 3})) {
             preparedStatement.setLong(1, 11L);
             int update = preparedStatement.executeUpdate();
             log.info("update={};", update);
-
         } catch (Exception e) {
             log.error("preparedStatement error!", e);
         } finally {
@@ -187,11 +195,15 @@ public class DBConfigTest {
      */
     @Test
     public void mybatisProxy() {
-
         Proxy proxy;
 
-
+        MySqlSessionFactoryBean mySqlSessionFactoryBean;
     }
+
+
+
+
+
 
 
 }
