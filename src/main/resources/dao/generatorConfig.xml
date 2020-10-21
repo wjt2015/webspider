@@ -53,7 +53,6 @@ mvn mybatis-generator:generate
             <property name="trimStrings" value="true"/>
             <!-- 建立的Model对象是否 不可改变  即生成的Model对象不会有 setter方法，只有构造方法 -->
             <property name="immutable" value="false"/>
-
             <property name="useActualColumnNames" value="false"/>
 
         </javaModelGenerator>
@@ -100,6 +99,22 @@ mvn mybatis-generator:generate
 
                         </table>
             -->
+<!--
+
+        <table tableName="guanghua_desc" domainObjectName="GuanghuaEntity" mapperName="GuanghuaMapper"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+
+       &lt;!&ndash;     <columnOverride column="login_ts" jdbcType="TIMESTAMP" javaType="java.lang.Long" property="loginTs"
+                            typeHandler="com.wjt.typehandler.LoginTsHandler"/>
+
+            <columnOverride column="available" jdbcType="TINYINT" javaType="com.wjt.enums.AvailableType"
+                            property="available" typeHandler="com.wjt.typehandler.AvailableHandler"/>
+&ndash;&gt;
+        </table>
+-->
 
 
         <table tableName="none"/>

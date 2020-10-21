@@ -2,23 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c290dd26-1c18-4844-8e69-349b760ac01c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/wjt/config/AopConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/wjt/config/SpiderConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/wjt/service/WebdriverService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/wjt/service/impl/WebdriverServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/springframework/jdbc/datasource/MyDataSourceTransactionManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/springframework/transaction/support/MyAbstractPlatformTransactionManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/wjt/config/SpiderConfigTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/wjt/service/impl/WebdriverServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wjt/service/JsoupService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wjt/service/JsoupService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wjt/service/impl/JsoupServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wjt/service/impl/JsoupServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/mybatis/spring/MySqlSessionFactoryBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/mybatis/spring/MySqlSessionFactoryBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/wjt/config/DBConfigTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/wjt/config/DBConfigTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/wjt/service/impl/JsoupServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/wjt/service/impl/JsoupServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/wjt/service/impl/JueJinServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/wjt/service/impl/JueJinServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webspider.iml" beforeDir="false" afterPath="$PROJECT_DIR$/webspider.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/docs/db.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wjt/service/impl/WebdriverServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wjt/service/impl/WebdriverServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dao/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dao/generatorConfig.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/wjt/service/impl/WebdriverServiceImplTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="25" column="51" lean-forward="true" selection-start-line="25" selection-start-column="51" selection-end-line="25" selection-end-column="51" />
+            <state relative-caret-position="286">
+              <caret line="23" column="40" lean-forward="true" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -41,11 +27,47 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/wjt/service/impl/WebdriverServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="51" column="48" selection-start-line="51" selection-start-column="48" selection-end-line="51" selection-end-column="48" />
+            <state relative-caret-position="393">
+              <caret line="55" selection-start-line="55" selection-end-line="55" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/docs/db.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="101">
+              <caret line="16" selection-start-line="16" selection-end-line="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/dao/generatorConfig.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="445">
+              <caret line="115" column="16" selection-start-line="115" selection-start-column="16" selection-end-line="115" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/redis/clients/jedis/MyJedisPool.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="88">
+              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/wjt/config/RedisConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-174">
+              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -124,7 +146,6 @@
         <option value="$PROJECT_DIR$/docs/design/db.txt" />
         <option value="$PROJECT_DIR$/src/main/java/com/wjt/App.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/wjt/common/Constants.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/dao/generatorConfig.xml" />
         <option value="$PROJECT_DIR$/src/main/java/clients/jedis/MyPipeline.java" />
         <option value="$PROJECT_DIR$/src/main/resources/dao/jdbc.properties" />
         <option value="$PROJECT_DIR$/doc/db.sql" />
@@ -132,7 +153,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/wjt/config/MyWebMvcConfigurer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/wjt/model/JunjinArticleEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/wjt/config/DBConfig.java" />
-        <option value="$PROJECT_DIR$/docs/db.sql" />
         <option value="$PROJECT_DIR$/src/main/java/com/wjt/task/MtJedisTask.java" />
         <option value="$USER_HOME$/.m2/settings.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/wjt/task/MyJedisTask.java" />
@@ -169,6 +189,8 @@
         <option value="$PROJECT_DIR$/src/test/java/com/wjt/service/impl/WebdriverServiceImplTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/wjt/config/SpiderConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/wjt/service/impl/WebdriverServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/dao/generatorConfig.xml" />
+        <option value="$PROJECT_DIR$/docs/db.sql" />
       </list>
     </option>
   </component>
@@ -189,17 +211,28 @@
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
           <item name="webspider" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Plugins" type="7aea1407:MavenProjectsStructure$PluginsNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="webspider" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Plugins" type="7aea1407:MavenProjectsStructure$PluginsNode" />
+          <item name="mybatis-generator" type="36feed69:MavenProjectsStructure$PluginNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="webspider" type="9519ce18:MavenProjectsStructure$ProjectNode" />
           <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
         </path>
       </expand>
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="1480" />
-    <option name="y" value="42" />
-    <option name="width" value="1695" />
-    <option name="height" value="919" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-28" />
+    <option name="y" value="23" />
+    <option name="width" value="1487" />
+    <option name="height" value="816" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -360,7 +393,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1603297117471" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1603308809177" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -586,17 +619,11 @@
       <workItem from="1603074947976" duration="17279000" />
       <workItem from="1603161216277" duration="5060000" />
       <workItem from="1603185873645" duration="1181000" />
-      <workItem from="1603247047866" duration="6234000" />
+      <workItem from="1603247047866" duration="7242000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="WebdriverServiceImplTest_saveRiyueguanghuaBBS - 2020.10.21 at 23h 51m 48s.xml">
-      <configuration name="WebdriverServiceImplTest.saveRiyueguanghuaBBS" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="WebdriverServiceImplTest_saveRiyueguanghuaBBS - 2020.10.21 at 23h 53m 11s.xml">
-      <configuration name="WebdriverServiceImplTest.saveRiyueguanghuaBBS" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="WebdriverServiceImplTest_saveRiyueguanghuaBBS - 2020.10.21 at 23h 55m 07s.xml">
       <configuration name="WebdriverServiceImplTest.saveRiyueguanghuaBBS" configurationId="JUnit" />
     </history-entry>
@@ -621,15 +648,21 @@
     <history-entry file="WebdriverServiceImplTest_saveRiyueguanghuaBBS - 2020.10.22 at 00h 13m 45s.xml">
       <configuration name="WebdriverServiceImplTest.saveRiyueguanghuaBBS" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="WebdriverServiceImplTest_saveRiyueguanghuaBBS - 2020.10.22 at 00h 15m 27s.xml">
+      <configuration name="WebdriverServiceImplTest.saveRiyueguanghuaBBS" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WebdriverServiceImplTest_saveRiyueguanghuaBBS - 2020.10.22 at 00h 18m 40s.xml">
+      <configuration name="WebdriverServiceImplTest.saveRiyueguanghuaBBS" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="216495000" />
+    <option name="totallyTimeSpent" value="217503000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1480" y="42" width="1695" height="919" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="816" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18632789" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22031474" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -639,12 +672,12 @@
       <window_info id="Learn" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.24285714" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3349456" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3349456" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39782345" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49932975" weight="0.21039903" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49932975" visible="true" weight="0.24033149" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50067025" side_tool="true" weight="0.329235" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" />
@@ -785,38 +818,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-chrome-driver/3.10.0/selenium-chrome-driver-3.10.0.jar!/org/openqa/selenium/chrome/ChromeDriver.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="36" column="40" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
-          <folding>
-            <element signature="e#1419#1420#0" expanded="true" />
-            <element signature="e#1504#1505#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-api/3.10.0/selenium-api-3.10.0.jar!/org/openqa/selenium/WebDriver.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="28" column="9" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-api/3.10.0/selenium-api-3.10.0-sources.jar!/org/openqa/selenium/WebDriver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10274">
-          <caret line="488" column="25" selection-start-line="488" selection-start-column="25" selection-end-line="488" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-api/3.10.0/selenium-api-3.10.0-sources.jar!/org/openqa/selenium/Point.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-chrome-driver/3.10.0/selenium-chrome-driver-3.10.0-sources.jar!/org/openqa/selenium/chrome/ChromeDriverService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -1199,20 +1200,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/wjt/service/impl/WebdriverServiceImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="23" column="40" lean-forward="true" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wjt/config/RedisConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-174">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/redis/clients/jedis/MyJedisPool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/wjt/service/impl/WebdriverServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="51" column="48" selection-start-line="51" selection-start-column="48" selection-end-line="51" selection-end-column="48" />
+        <state relative-caret-position="393">
+          <caret line="55" selection-start-line="55" selection-end-line="55" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/wjt/service/impl/WebdriverServiceImplTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/dao/generatorConfig.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="25" column="51" lean-forward="true" selection-start-line="25" selection-start-column="51" selection-end-line="25" selection-end-column="51" />
+        <state relative-caret-position="445">
+          <caret line="115" column="16" selection-start-line="115" selection-start-column="16" selection-end-line="115" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/db.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="16" selection-start-line="16" selection-end-line="28" />
         </state>
       </provider>
     </entry>
