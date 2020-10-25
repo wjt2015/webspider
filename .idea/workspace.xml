@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c290dd26-1c18-4844-8e69-349b760ac01c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wjt/service/impl/WebdriverServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wjt/service/impl/WebdriverServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/wjt/service/impl/WebdriverServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/wjt/service/impl/WebdriverServiceImplTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,11 +27,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/wjt/service/impl/WebdriverServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="214" column="24" selection-start-line="214" selection-start-column="24" selection-end-line="214" selection-end-column="36" />
+            <state relative-caret-position="329">
+              <caret line="282" column="40" selection-start-line="282" selection-start-column="30" selection-end-line="282" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#3208#3472#0" expanded="true" />
@@ -46,6 +44,8 @@
                 <element signature="e#6119#6120#0" expanded="true" />
                 <element signature="e#7015#7219#0" expanded="true" />
                 <element signature="e#7218#7219#0" expanded="true" />
+                <element signature="e#7421#7654#0" expanded="true" />
+                <element signature="e#7653#7654#0" expanded="true" />
                 <element signature="e#8182#8524#0" expanded="true" />
                 <element signature="e#8523#8524#0" expanded="true" />
                 <element signature="e#9119#9417#0" expanded="true" />
@@ -55,11 +55,20 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/docs/logs/2020-10-26/info-log.log">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-182">
+              <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/wjt/service/impl/WebdriverServiceImplTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="316">
-              <caret line="40" column="67" lean-forward="true" selection-start-line="40" selection-start-column="67" selection-end-line="40" selection-end-column="67" />
+              <caret line="40" column="67" selection-start-line="40" selection-start-column="67" selection-end-line="40" selection-end-column="67" />
             </state>
           </provider>
         </entry>
@@ -78,7 +87,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getMyMapperRegistry</find>
       <find>MapperAnnotationBuilder</find>
       <find>Configuration</find>
       <find>map=</find>
@@ -108,6 +116,7 @@
       <find>pattern_text=</find>
       <find>prevText=</find>
       <find>prevElement</find>
+      <find>found;text</find>
     </findStrings>
     <replaceStrings>
       <replace>public</replace>
@@ -415,7 +424,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1603657648888" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1603658307853" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -644,7 +653,7 @@
       <workItem from="1603185873645" duration="1181000" />
       <workItem from="1603247047866" duration="10017000" />
       <workItem from="1603453180013" duration="599000" />
-      <workItem from="1603454740133" duration="9829000" />
+      <workItem from="1603454740133" duration="10488000" />
     </task>
     <servers />
   </component>
@@ -681,10 +690,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="230706000" />
+    <option name="totallyTimeSpent" value="231365000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="808" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1416309" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -1207,27 +1217,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/logs/2020-10-26/error-log.log">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/logs/2020-10-26/info-log.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/wjt/service/impl/WebdriverServiceImplTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="316">
-          <caret line="40" column="67" lean-forward="true" selection-start-line="40" selection-start-column="67" selection-end-line="40" selection-end-column="67" />
+          <caret line="40" column="67" selection-start-line="40" selection-start-column="67" selection-end-line="40" selection-end-column="67" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/docs/logs/2020-10-26/error-log.log">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/wjt/service/impl/WebdriverServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="214" column="24" selection-start-line="214" selection-start-column="24" selection-end-line="214" selection-end-column="36" />
+        <state relative-caret-position="329">
+          <caret line="282" column="40" selection-start-line="282" selection-start-column="30" selection-end-line="282" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#3208#3472#0" expanded="true" />
@@ -1240,11 +1243,20 @@
             <element signature="e#6119#6120#0" expanded="true" />
             <element signature="e#7015#7219#0" expanded="true" />
             <element signature="e#7218#7219#0" expanded="true" />
+            <element signature="e#7421#7654#0" expanded="true" />
+            <element signature="e#7653#7654#0" expanded="true" />
             <element signature="e#8182#8524#0" expanded="true" />
             <element signature="e#8523#8524#0" expanded="true" />
             <element signature="e#9119#9417#0" expanded="true" />
             <element signature="e#9416#9417#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/logs/2020-10-26/info-log.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-182">
+          <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
         </state>
       </provider>
     </entry>
