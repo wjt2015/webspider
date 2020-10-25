@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c290dd26-1c18-4844-8e69-349b760ac01c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wjt/common/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wjt/common/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wjt/config/SpiderConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wjt/config/SpiderConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/wjt/service/impl/WebdriverServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wjt/service/impl/WebdriverServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/wjt/config/SpiderConfigTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/wjt/config/SpiderConfigTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/wjt/service/impl/WebdriverServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/wjt/service/impl/WebdriverServiceImplTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,92 +27,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/wjt/service/impl/WebdriverServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1166">
-              <caret line="67" selection-start-line="67" selection-end-line="67" />
+            <state relative-caret-position="132">
+              <caret line="98" column="48" lean-forward="true" selection-start-line="98" selection-start-column="48" selection-end-line="98" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#2775#2997#0" expanded="true" />
+                <element signature="e#2996#2997#0" expanded="true" />
+                <element signature="e#3066#3260#0" expanded="true" />
+                <element signature="e#3259#3260#0" expanded="true" />
+                <element signature="e#3781#4051#0" expanded="true" />
+                <element signature="e#4050#4051#0" expanded="true" />
+                <element signature="e#4663#4958#0" expanded="true" />
+                <element signature="e#4957#4958#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/wjt/common/CommonUtils.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/redis/clients/jedis/MyJedis.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/src.zip!/javax/imageio/ImageReader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-42784">
-              <caret line="72" column="22" selection-start-line="72" selection-start-column="22" selection-end-line="72" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/wjt/config/SpiderConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/wjt/config/SpiderConfigTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="69" column="22" lean-forward="true" selection-start-line="69" selection-start-column="22" selection-end-line="69" selection-end-column="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/com/squareup/okhttp3/okhttp/3.11.0/okhttp-3.11.0-sources.jar!/okhttp3/ResponseBody.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="171" column="22" selection-start-line="171" selection-start-column="22" selection-end-line="171" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/com/squareup/okhttp3/okhttp/3.11.0/okhttp-3.11.0-sources.jar!/okhttp3/Request.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="206" column="19" selection-start-line="206" selection-start-column="19" selection-end-line="206" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/wjt/common/Constants.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="35" column="33" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-api/3.10.0/selenium-api-3.10.0-sources.jar!/org/openqa/selenium/WebDriver.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8030">
-              <caret line="386" column="9" selection-start-line="386" selection-start-column="9" selection-end-line="386" selection-end-column="9" />
+            <state relative-caret-position="300">
+              <caret line="1126" column="18" selection-start-line="1126" selection-start-column="18" selection-end-line="1126" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -125,8 +59,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/wjt/service/impl/WebdriverServiceImplTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="26" column="95" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="95" />
+            <state relative-caret-position="182">
+              <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -145,10 +79,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>SqlSessionFactoryBean</find>
-      <find>SqlSessionFactoryBuilder</find>
-      <find>MapperScannerConfigurer</find>
-      <find>ClassPathMapperScanner</find>
       <find>ClassPathScanningCandidateComponentProvider</find>
       <find>ClassPathBeanDefinitionScanner</find>
       <find>MapperRegistry</find>
@@ -175,6 +105,10 @@
       <find>System.set</find>
       <find>tanslate</find>
       <find>tgt</find>
+      <find>prevHref=</find>
+      <find>itemList.size=</find>
+      <find>保存上一页的page_url;prevHref=</find>
+      <find>itemList.size</find>
     </findStrings>
     <replaceStrings>
       <replace>public</replace>
@@ -248,8 +182,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/wjt/config/SpiderConfig.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/wjt/service/impl/WebdriverServiceImplTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/wjt/common/Constants.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wjt/service/impl/WebdriverServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/wjt/config/SpiderConfigTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/wjt/service/impl/WebdriverServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -469,12 +403,13 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1603651069991" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1603654469970" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -515,7 +450,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.SpiderConfigTest.tanslateByWebDriver">
+  <component name="RunManager" selected="JUnit.WebdriverServiceImplTest.saveRiyueguanghuaBBS">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
@@ -632,9 +567,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.WebdriverServiceImplTest.saveRiyueguanghuaBBS" />
         <item itemvalue="JUnit.SpiderConfigTest.tanslateByWebDriver" />
         <item itemvalue="JUnit.SpiderConfigTest.tanslate" />
-        <item itemvalue="JUnit.WebdriverServiceImplTest.saveRiyueguanghuaBBS" />
         <item itemvalue="JUnit.JsoupServiceImplTest.saveBingmayongBBS" />
         <item itemvalue="JUnit.DBConfigTest.okHttp" />
       </list>
@@ -697,32 +632,11 @@
       <workItem from="1603185873645" duration="1181000" />
       <workItem from="1603247047866" duration="10017000" />
       <workItem from="1603453180013" duration="599000" />
-      <workItem from="1603454740133" duration="3533000" />
+      <workItem from="1603454740133" duration="7076000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="WebdriverServiceImplTest_saveRiyueguanghuaBBS - 2020.10.22 at 00h 18m 40s.xml">
-      <configuration name="WebdriverServiceImplTest.saveRiyueguanghuaBBS" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SpiderConfigTest_tanslate - 2020.10.26 at 02h 18m 07s.xml">
-      <configuration name="SpiderConfigTest.tanslate" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SpiderConfigTest_tanslate - 2020.10.26 at 02h 18m 24s.xml">
-      <configuration name="SpiderConfigTest.tanslate" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SpiderConfigTest_tanslate - 2020.10.26 at 02h 20m 48s.xml">
-      <configuration name="SpiderConfigTest.tanslate" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SpiderConfigTest_tanslate - 2020.10.26 at 02h 21m 25s.xml">
-      <configuration name="SpiderConfigTest.tanslate" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SpiderConfigTest_tanslate - 2020.10.26 at 02h 25m 51s.xml">
-      <configuration name="SpiderConfigTest.tanslate" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SpiderConfigTest_tanslateByWebDriver - 2020.10.26 at 02h 35m 22s.xml">
-      <configuration name="SpiderConfigTest.tanslateByWebDriver" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="SpiderConfigTest_tanslateByWebDriver - 2020.10.26 at 02h 35m 47s.xml">
       <configuration name="SpiderConfigTest.tanslateByWebDriver" configurationId="JUnit" />
     </history-entry>
@@ -732,15 +646,36 @@
     <history-entry file="SpiderConfigTest_tanslateByWebDriver - 2020.10.26 at 02h 36m 59s.xml">
       <configuration name="SpiderConfigTest.tanslateByWebDriver" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="WebdriverServiceImplTest_saveRiyueguanghuaBBS - 2020.10.26 at 02h 40m 36s.xml">
+      <configuration name="WebdriverServiceImplTest.saveRiyueguanghuaBBS" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WebdriverServiceImplTest_saveRiyueguanghuaBBS - 2020.10.26 at 02h 42m 30s.xml">
+      <configuration name="WebdriverServiceImplTest.saveRiyueguanghuaBBS" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WebdriverServiceImplTest_saveRiyueguanghuaBBS - 2020.10.26 at 02h 50m 55s.xml">
+      <configuration name="WebdriverServiceImplTest.saveRiyueguanghuaBBS" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WebdriverServiceImplTest_saveRiyueguanghuaBBS - 2020.10.26 at 02h 52m 06s.xml">
+      <configuration name="WebdriverServiceImplTest.saveRiyueguanghuaBBS" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WebdriverServiceImplTest_saveRiyueguanghuaBBS - 2020.10.26 at 02h 54m 11s.xml">
+      <configuration name="WebdriverServiceImplTest.saveRiyueguanghuaBBS" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WebdriverServiceImplTest_saveRiyueguanghuaBBS - 2020.10.26 at 02h 55m 58s.xml">
+      <configuration name="WebdriverServiceImplTest.saveRiyueguanghuaBBS" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WebdriverServiceImplTest_saveRiyueguanghuaBBS - 2020.10.26 at 03h 15m 31s.xml">
+      <configuration name="WebdriverServiceImplTest.saveRiyueguanghuaBBS" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="224410000" />
+    <option name="totallyTimeSpent" value="227953000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="808" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20886981" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.115879826" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -750,7 +685,7 @@
       <window_info id="Learn" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.24285714" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3337989" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3337989" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39782345" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -896,46 +831,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/springframework/transaction/support/MyAbstractPlatformTransactionManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="83" column="77" selection-start-line="83" selection-start-column="77" selection-end-line="83" selection-end-column="77" />
-          <folding>
-            <element signature="e#3810#3837#0" expanded="true" />
-            <element signature="e#7179#7180#0" expanded="true" />
-            <element signature="e#7233#7234#0" expanded="true" />
-            <element signature="e#8350#8351#0" expanded="true" />
-            <element signature="e#8392#8393#0" expanded="true" />
-            <element signature="e#8880#8881#0" expanded="true" />
-            <element signature="e#8932#8933#0" expanded="true" />
-            <element signature="e#10087#10088#0" expanded="true" />
-            <element signature="e#10142#10143#0" expanded="true" />
-            <element signature="e#12966#12967#0" expanded="true" />
-            <element signature="e#13030#13031#0" expanded="true" />
-            <element signature="e#14392#14393#0" expanded="true" />
-            <element signature="e#14449#14450#0" expanded="true" />
-            <element signature="e#15135#15136#0" expanded="true" />
-            <element signature="e#15186#15187#0" expanded="true" />
-            <element signature="e#51712#51713#0" expanded="true" />
-            <element signature="e#51739#51740#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.3.8.RELEASE/spring-tx-4.3.8.RELEASE-sources.jar!/org/springframework/transaction/PlatformTransactionManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="59" column="26" lean-forward="true" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/batch/spring-batch-core/4.1.2.RELEASE/spring-batch-core-4.1.2.RELEASE-sources.jar!/org/springframework/batch/core/configuration/JobFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
@@ -1241,16 +1136,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wjt/service/impl/WebdriverServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1166">
-          <caret line="67" selection-start-line="67" selection-end-line="67" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/wjt/common/Constants.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="594">
@@ -1262,13 +1147,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="8030">
           <caret line="386" column="9" selection-start-line="386" selection-start-column="9" selection-end-line="386" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/wjt/service/impl/WebdriverServiceImplTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="26" column="95" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="95" />
         </state>
       </provider>
     </entry>
@@ -1312,10 +1190,52 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/wjt/config/SpiderConfigTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="69" column="22" lean-forward="true" selection-start-line="69" selection-start-column="22" selection-end-line="69" selection-end-column="22" />
+        <state relative-caret-position="1125">
+          <caret line="72" selection-start-line="72" selection-end-line="72" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/redis/clients/jedis/MyJedis.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="1126" column="18" selection-start-line="1126" selection-start-column="18" selection-end-line="1126" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/wjt/service/impl/WebdriverServiceImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/logs/2020-10-26/error-log.log">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/logs/2020-10-26/info-log.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="439" column="120" selection-start-line="439" selection-start-column="107" selection-end-line="439" selection-end-column="120" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wjt/service/impl/WebdriverServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="98" column="48" lean-forward="true" selection-start-line="98" selection-start-column="48" selection-end-line="98" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2775#2997#0" expanded="true" />
+            <element signature="e#2996#2997#0" expanded="true" />
+            <element signature="e#3066#3260#0" expanded="true" />
+            <element signature="e#3259#3260#0" expanded="true" />
+            <element signature="e#3781#4051#0" expanded="true" />
+            <element signature="e#4050#4051#0" expanded="true" />
+            <element signature="e#4663#4958#0" expanded="true" />
+            <element signature="e#4957#4958#0" expanded="true" />
           </folding>
         </state>
       </provider>
