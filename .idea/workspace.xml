@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c290dd26-1c18-4844-8e69-349b760ac01c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wjt/service/WebdriverService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wjt/service/WebdriverService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/wjt/service/impl/WebdriverServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wjt/service/impl/WebdriverServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/wjt/service/impl/WebdriverServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/wjt/service/impl/WebdriverServiceImplTest.java" afterDir="false" />
     </list>
@@ -33,22 +32,24 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/wjt/service/impl/WebdriverServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7">
-              <caret line="206" column="17" selection-start-line="206" selection-start-column="17" selection-end-line="206" selection-end-column="17" />
+            <state relative-caret-position="370">
+              <caret line="214" column="24" selection-start-line="214" selection-start-column="24" selection-end-line="214" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3210#3474#0" expanded="true" />
-                <element signature="e#3473#3474#0" expanded="true" />
-                <element signature="e#3571#3778#0" expanded="true" />
-                <element signature="e#3777#3778#0" expanded="true" />
-                <element signature="e#4812#5217#0" expanded="true" />
-                <element signature="e#5216#5217#0" expanded="true" />
-                <element signature="e#5829#6122#0" expanded="true" />
-                <element signature="e#6121#6122#0" expanded="true" />
-                <element signature="e#7742#7970#0" expanded="true" />
-                <element signature="e#7969#7970#0" expanded="true" />
-                <element signature="e#8676#8904#0" expanded="true" />
-                <element signature="e#8903#8904#0" expanded="true" />
+                <element signature="e#3208#3472#0" expanded="true" />
+                <element signature="e#3471#3472#0" expanded="true" />
+                <element signature="e#3569#3776#0" expanded="true" />
+                <element signature="e#3775#3776#0" expanded="true" />
+                <element signature="e#4810#5215#0" expanded="true" />
+                <element signature="e#5214#5215#0" expanded="true" />
+                <element signature="e#5827#6120#0" expanded="true" />
+                <element signature="e#6119#6120#0" expanded="true" />
+                <element signature="e#7015#7219#0" expanded="true" />
+                <element signature="e#7218#7219#0" expanded="true" />
+                <element signature="e#8182#8524#0" expanded="true" />
+                <element signature="e#8523#8524#0" expanded="true" />
+                <element signature="e#9119#9417#0" expanded="true" />
+                <element signature="e#9416#9417#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -57,8 +58,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/wjt/service/impl/WebdriverServiceImplTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="41" column="36" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
+            <state relative-caret-position="316">
+              <caret line="40" column="67" lean-forward="true" selection-start-line="40" selection-start-column="67" selection-end-line="40" selection-end-column="67" />
             </state>
           </provider>
         </entry>
@@ -77,7 +78,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>MapperRegistry</find>
       <find>getMyMapperRegistry</find>
       <find>MapperAnnotationBuilder</find>
       <find>Configuration</find>
@@ -107,6 +107,7 @@
       <find>itemList.size</find>
       <find>pattern_text=</find>
       <find>prevText=</find>
+      <find>prevElement</find>
     </findStrings>
     <replaceStrings>
       <replace>public</replace>
@@ -241,6 +242,19 @@
               <item name="webspider" type="b2602c69:ProjectViewProjectNode" />
               <item name="webspider" type="462c0819:PsiDirectoryNode" />
               <item name="docs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webspider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webspider" type="462c0819:PsiDirectoryNode" />
+              <item name="docs" type="462c0819:PsiDirectoryNode" />
+              <item name="logs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webspider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webspider" type="462c0819:PsiDirectoryNode" />
+              <item name="docs" type="462c0819:PsiDirectoryNode" />
+              <item name="logs" type="462c0819:PsiDirectoryNode" />
+              <item name="2020-10-26" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="webspider" type="b2602c69:ProjectViewProjectNode" />
@@ -401,7 +415,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1603657071542" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1603657553267" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -630,7 +644,7 @@
       <workItem from="1603185873645" duration="1181000" />
       <workItem from="1603247047866" duration="10017000" />
       <workItem from="1603453180013" duration="599000" />
-      <workItem from="1603454740133" duration="9240000" />
+      <workItem from="1603454740133" duration="9829000" />
     </task>
     <servers />
   </component>
@@ -667,11 +681,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="230117000" />
+    <option name="totallyTimeSpent" value="230706000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="808" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1416309" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -1200,35 +1213,37 @@
     <entry file="file://$PROJECT_DIR$/docs/logs/2020-10-26/info-log.log">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/wjt/service/impl/WebdriverServiceImplTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="41" column="36" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
+        <state relative-caret-position="316">
+          <caret line="40" column="67" lean-forward="true" selection-start-line="40" selection-start-column="67" selection-end-line="40" selection-end-column="67" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/wjt/service/impl/WebdriverServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7">
-          <caret line="206" column="17" selection-start-line="206" selection-start-column="17" selection-end-line="206" selection-end-column="17" />
+        <state relative-caret-position="370">
+          <caret line="214" column="24" selection-start-line="214" selection-start-column="24" selection-end-line="214" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3210#3474#0" expanded="true" />
-            <element signature="e#3473#3474#0" expanded="true" />
-            <element signature="e#3571#3778#0" expanded="true" />
-            <element signature="e#3777#3778#0" expanded="true" />
-            <element signature="e#4812#5217#0" expanded="true" />
-            <element signature="e#5216#5217#0" expanded="true" />
-            <element signature="e#5829#6122#0" expanded="true" />
-            <element signature="e#6121#6122#0" expanded="true" />
-            <element signature="e#7742#7970#0" expanded="true" />
-            <element signature="e#7969#7970#0" expanded="true" />
-            <element signature="e#8676#8904#0" expanded="true" />
-            <element signature="e#8903#8904#0" expanded="true" />
+            <element signature="e#3208#3472#0" expanded="true" />
+            <element signature="e#3471#3472#0" expanded="true" />
+            <element signature="e#3569#3776#0" expanded="true" />
+            <element signature="e#3775#3776#0" expanded="true" />
+            <element signature="e#4810#5215#0" expanded="true" />
+            <element signature="e#5214#5215#0" expanded="true" />
+            <element signature="e#5827#6120#0" expanded="true" />
+            <element signature="e#6119#6120#0" expanded="true" />
+            <element signature="e#7015#7219#0" expanded="true" />
+            <element signature="e#7218#7219#0" expanded="true" />
+            <element signature="e#8182#8524#0" expanded="true" />
+            <element signature="e#8523#8524#0" expanded="true" />
+            <element signature="e#9119#9417#0" expanded="true" />
+            <element signature="e#9416#9417#0" expanded="true" />
           </folding>
         </state>
       </provider>

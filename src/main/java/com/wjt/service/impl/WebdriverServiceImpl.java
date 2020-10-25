@@ -178,9 +178,15 @@ public class WebdriverServiceImpl implements WebdriverService {
     private static final Pattern PATTERN = Pattern.compile(".*男.*征.*");
 
     private boolean needSave(final String text) {
+        if (text == null) {
+            return false;
+        }
         final Matcher matcher = PATTERN.matcher(text);
         if (matcher.matches()) {
             log.info("pattern_text={};", text);
+            return false;
+        }
+        if (text.contains("Re:")) {
             return false;
         }
 
@@ -191,7 +197,32 @@ public class WebdriverServiceImpl implements WebdriverService {
     @Override
     public void saveBingmayongBBS(String url) {
         try {
-            saveBingmayongBBSOnePage(url);
+            //保存本页url;
+            new MyJedisTask() {
+                @Override
+                protected Object doJedisTask(MyJedis myJedis, Object o) {
+                    myJedis.lpush(BINGMAYONG_URL_LIST, url);
+                    myJedis.sadd(BINGMAYONG_URL_SET, url);
+                    return null;
+                }
+            }.doTask(myJedisPool, null);
+
+            while (true) {
+                //逐页查询;
+                Object o = new MyJedisTask() {
+                    @Override
+                    protected Object doJedisTask(MyJedis myJedis, Object o) {
+                        return myJedis.rpop(BINGMAYONG_URL_LIST);
+                    }
+                }.doTask(myJedisPool, null);
+                log.info("o={};", o);
+                if (o == null || !(o instanceof String)) {
+                    break;
+                }
+
+                saveBingmayongBBSOnePage((String) o);
+            }
+
         } catch (Exception e) {
             log.error("webDriver error!url={};", url, e);
         } finally {
@@ -238,14 +269,17 @@ public class WebdriverServiceImpl implements WebdriverService {
                 String text = element.getText();
                 String href = element.getAttribute("href");
                 log.info("text={};href={};", text, href);
-                new MyJedisTask() {
-                    @Override
-                    protected Object doJedisTask(MyJedis myJedis, Object o) {
-                        myJedis.hset(BINGMAYONG_FRIENDS, text, href);
-                        return null;
-                    }
-                }.doTask(myJedisPool, null);
+                if (needSave(text)) {
+                    new MyJedisTask() {
+                        @Override
+                        protected Object doJedisTask(MyJedis myJedis, Object o) {
+                            myJedis.hset(BINGMAYONG_FRIENDS, text, href);
+                            return null;
+                        }
+                    }.doTask(myJedisPool, null);
+                }
             }
+
 
         } catch (Exception e) {
 

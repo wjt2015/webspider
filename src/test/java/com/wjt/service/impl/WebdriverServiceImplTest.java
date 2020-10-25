@@ -38,7 +38,7 @@ public class WebdriverServiceImplTest {
      */
     @Test
     public void  saveBingmayongBBS(){
-        String url="http://bbs.xjtu.edu.cn/BMY_B/";
+        String url="http://bbs.xjtu.edu.cn/BMY_B/home?B=PieBridge";
         webdriverService.saveBingmayongBBS(url);
     }
 }
