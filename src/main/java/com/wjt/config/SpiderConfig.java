@@ -43,5 +43,15 @@ public class SpiderConfig {
         return chromeDriver;
     }
 
+    @Bean
+    public WebDriver chromeDriverForDetail() {
+        final ChromeDriver chromeDriver = new ChromeDriver();
+        chromeDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS)
+                .setScriptTimeout(10, TimeUnit.SECONDS)
+                .pageLoadTimeout(10, TimeUnit.SECONDS);
+
+        return chromeDriver;
+    }
+
 
 }

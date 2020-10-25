@@ -35,5 +35,7 @@ public interface Constants {
 
     Random RANDOM = new Random();
 
+    String SCROLL_BOTTOM_JS = "window.scrollTo(0,document.body.scrollHeight)";
+
 
 }
