@@ -175,17 +175,82 @@ public class WebdriverServiceImpl implements WebdriverService {
         }
     }
 
-    private static final Pattern PATTERN=Pattern.compile(".*男.+征.*");
+    private static final Pattern PATTERN = Pattern.compile(".*男.*征.*");
 
     private boolean needSave(final String text) {
         final Matcher matcher = PATTERN.matcher(text);
-        if(matcher.matches()){
-            log.info("pattern_text={};",text);
+        if (matcher.matches()) {
+            log.info("pattern_text={};", text);
             return false;
         }
 
         return (text != null && !text.contains("主题") && !text.contains("鹊.桥.版.规 ≌ 文.贴.定.位") && !text.contains("撤牌"));
     }
 
+
+    @Override
+    public void saveBingmayongBBS(String url) {
+        try {
+            saveBingmayongBBSOnePage(url);
+        } catch (Exception e) {
+            log.error("webDriver error!url={};", url, e);
+        } finally {
+            webDriver.quit();
+        }
+    }
+
+
+    private static final String BINGMAYONG_URL_LIST = "bingmayong_url_list";
+    private static final String BINGMAYONG_URL_SET = "bingmayong_url_set";
+    private static final String BINGMAYONG_FRIENDS = "bingmayong_friends";
+
+    private void saveBingmayongBBSOnePage(String url) {
+
+        final ChromeDriver chromeDriver = (ChromeDriver) webDriver;
+        try {
+            chromeDriver.get(url);
+            chromeDriver.executeScript(Constants.SCROLL_BOTTOM_JS);
+            log.info("load_page_finish!url={};", url);
+
+            //保存上一页url;/html/body/table[2]/tbody/tr[2]/td[2]/a[5]
+            final WebElement prevElement = chromeDriver.findElement(By.xpath("//table[2]/tbody/tr[2]/td[2]/a[5]"));
+            log.info("prevElement={};", prevElement);
+            String prevText = prevElement.getText();
+            String prevHref = prevElement.getAttribute("href");
+            log.info("prevText={};prevHref={};", prevText, prevHref);
+            if (prevHref != null) {
+                new MyJedisTask() {
+                    @Override
+                    protected Object doJedisTask(MyJedis myJedis, Object o) {
+                        myJedis.sadd(BINGMAYONG_URL_SET, prevHref);
+                        myJedis.lpush(BINGMAYONG_URL_LIST, prevHref);
+                        return null;
+                    }
+                }.doTask(myJedisPool, null);
+            }
+
+            //保存每个条目;
+            List<WebElement> itemList = chromeDriver.findElements(By.xpath("//table[1]/tbody/tr[4]/td/table/tbody/tr"));
+            log.info("itemList.size={};", itemList.size());
+
+            for (WebElement item : itemList) {
+                WebElement element = item.findElement(By.xpath("//td[5]/a"));
+                String text = element.getText();
+                String href = element.getAttribute("href");
+                log.info("text={};href={};", text, href);
+                new MyJedisTask() {
+                    @Override
+                    protected Object doJedisTask(MyJedis myJedis, Object o) {
+                        myJedis.hset(BINGMAYONG_FRIENDS, text, href);
+                        return null;
+                    }
+                }.doTask(myJedisPool, null);
+            }
+
+        } catch (Exception e) {
+
+        }
+
+    }
 
 }

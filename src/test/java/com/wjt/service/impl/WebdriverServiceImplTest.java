@@ -32,4 +32,13 @@ public class WebdriverServiceImplTest {
         webdriverService.saveRiyueguanghuaBBS(url);
 
     }
+
+    /**
+     * mvn clean test -Dtest=com.wjt.service.impl.WebdriverServiceImplTest#saveBingmayongBBS
+     */
+    @Test
+    public void  saveBingmayongBBS(){
+        String url="http://bbs.xjtu.edu.cn/BMY_B/";
+        webdriverService.saveBingmayongBBS(url);
+    }
 }
