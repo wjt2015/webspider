@@ -278,13 +278,16 @@ public class WebdriverServiceImpl implements WebdriverService {
                         }
                     }.doTask(myJedisPool, null);
                 }
+
+                if (BINGMAYONG_PATTERN.matcher(text).matches()) {
+                    log.info("found;text={};href={};", text, href);
+                }
             }
-
-
         } catch (Exception e) {
-
+            log.error("webDriver page error!url={};", url, e);
         }
-
     }
+
+    private static final Pattern BINGMAYONG_PATTERN = Pattern.compile(".*央企.*财务.*");
 
 }
