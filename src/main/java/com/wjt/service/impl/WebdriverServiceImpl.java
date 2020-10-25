@@ -18,6 +18,8 @@ import redis.clients.jedis.MyJedisPool;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Slf4j
 @Service
@@ -173,8 +175,16 @@ public class WebdriverServiceImpl implements WebdriverService {
         }
     }
 
+    private static final Pattern PATTERN=Pattern.compile(".*男.+征.*");
+
     private boolean needSave(final String text) {
-        return (text != null && !text.contains("主题") && !text.contains("鹊.桥.版.规 ≌ 文.贴.定.位"));
+        final Matcher matcher = PATTERN.matcher(text);
+        if(matcher.matches()){
+            log.info("pattern_text={};",text);
+            return false;
+        }
+
+        return (text != null && !text.contains("主题") && !text.contains("鹊.桥.版.规 ≌ 文.贴.定.位") && !text.contains("撤牌"));
     }
 
 
