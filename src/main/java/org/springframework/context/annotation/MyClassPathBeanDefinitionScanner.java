@@ -20,6 +20,7 @@ import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.AnnotatedBeanDefinition;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.BeanDefinitionHolder;
@@ -60,6 +61,7 @@ import org.springframework.util.PatternMatchUtils;
  * @see org.springframework.stereotype.Controller
  * @since 2.5
  */
+@Slf4j
 public class MyClassPathBeanDefinitionScanner extends MyClassPathScanningCandidateComponentProvider {
 
     private final BeanDefinitionRegistry registry;

@@ -21,7 +21,7 @@ import java.util.Date;
  */
 
 @Data
-public class JunjinArticleEntity {
+public class JuejinArticleEntity {
     public Long id;
 
     public Date createTime;
@@ -38,7 +38,7 @@ public class JunjinArticleEntity {
 
     public String summary;
 
-    public JunjinArticleEntity(Long id, Date createTime, Date updateTime, String createUser, String updateUser, String title, String url, String summary) {
+    public JuejinArticleEntity(Long id, Date createTime, Date updateTime, String createUser, String updateUser, String title, String url, String summary) {
         this.id = id;
         this.createTime = createTime;
         this.updateTime = updateTime;
@@ -49,7 +49,7 @@ public class JunjinArticleEntity {
         this.summary = summary;
     }
 
-    public JunjinArticleEntity() {
+    public JuejinArticleEntity() {
         super();
     }
     

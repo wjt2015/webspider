@@ -78,7 +78,8 @@ public class MyClassPathMapperScanner extends MyClassPathBeanDefinitionScanner {
         super(registry, false);
     }
 
-    public void setAddToConfig(boolean addToConfig) {
+    public void
+    setAddToConfig(boolean addToConfig) {
         this.addToConfig = addToConfig;
     }
 

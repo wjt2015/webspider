@@ -84,7 +84,7 @@ mvn mybatis-generator:generate
                 </table>-->
 
         <!--
-                        <table tableName="juejin_article" domainObjectName="JunjinArticleEntity" mapperName="JunjinArticleMapper"
+                        <table tableName="juejin_article" domainObjectName="JuejinArticleEntity" mapperName="JunjinArticleMapper"
                                enableCountByExample="false" enableUpdateByExample="false"
                                enableDeleteByExample="false" enableSelectByExample="false"
                                selectByExampleQueryId="false">

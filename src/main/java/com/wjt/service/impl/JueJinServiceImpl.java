@@ -2,15 +2,14 @@ package com.wjt.service.impl;
 
 import com.wjt.common.CommonUtils;
 import com.wjt.common.Constants;
-import com.wjt.dao.JunjinArticleMapper;
-import com.wjt.model.JunjinArticleEntity;
+import com.wjt.dao.JuejinArticleMapper;
+import com.wjt.model.JuejinArticleEntity;
 import com.wjt.service.ExistChecker;
 import com.wjt.service.JueJinService;
 import com.wjt.task.MyJedisTask;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.CollectionUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -29,7 +28,7 @@ import java.util.stream.Collectors;
 public class JueJinServiceImpl implements JueJinService {
 
     @Resource
-    private JunjinArticleMapper junjinArticleMapper;
+    private JuejinArticleMapper juejinArticleMapper;
 
     @Resource
     private JedisPool jedisPool;
@@ -141,11 +140,11 @@ public class JueJinServiceImpl implements JueJinService {
                 title, currentUrl, content.length(), content);
 
         //save db;
-        JunjinArticleEntity junjinArticleEntity=new JunjinArticleEntity();
-        junjinArticleEntity.title=title;
-        junjinArticleEntity.url=currentUrl;
-        junjinArticleEntity.summary=content.substring(0,230);
-        junjinArticleMapper.insertSelective(junjinArticleEntity);
+        JuejinArticleEntity juejinArticleEntity =new JuejinArticleEntity();
+        juejinArticleEntity.title=title;
+        juejinArticleEntity.url=currentUrl;
+        juejinArticleEntity.summary=content.substring(0,230);
+        juejinArticleMapper.insertSelective(juejinArticleEntity);
 
         saveRecommendUrls(webDriver);
 

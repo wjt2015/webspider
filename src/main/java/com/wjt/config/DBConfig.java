@@ -4,6 +4,7 @@ import com.alibaba.druid.pool.DruidDataSource;
 import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.mapper.MapperScannerConfigurer;
+import org.mybatis.spring.mapper.MyMapperScannerConfigurer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProcessor;
@@ -14,6 +15,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.stereotype.Repository;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
@@ -27,9 +29,10 @@ import java.io.IOException;
 
 @Slf4j
 @Configuration
-//@PropertySource(value = {"classpath:dao/jdbc.properties"})
 @EnableTransactionManagement(proxyTargetClass = true, mode = AdviceMode.PROXY)
-@ImportResource(locations = {"classpath:dao/mybatis_spring.xml"})
+//@ImportResource(locations = {"classpath:dao/mybatis_spring.xml"})
+//@ActiveProfiles(profiles = {"dev"})
+//@PropertySource(value = {"classpath:dao/jdbc.properties"})
 public class DBConfig {
 
     //@Value("${driverClassName}")
@@ -55,11 +58,39 @@ public class DBConfig {
 
     //@Value("${query_timeout}")
     private int queryTimeout = 2000;
+    //----
 /*
-    @Bean
-    public DataSource dataSource(@Autowired PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer) {
 
-        log.info("driverClassName={};", driverClassName);
+    @Value("${driverClassName}")
+    private String driverClassName;
+
+    @Value("${wjt_train_jdbc_url}")
+    private String jdbcUrl;
+
+    @Value("${username}")
+    private String username;
+
+    @Value("${password}")
+    private String password;
+
+    @Value("${max_active}")
+    private int maxActive;
+
+    @Value("${min_idle}")
+    private int minIdle;
+
+    @Value("${default_auto_commit}")
+    private boolean defaultAutoCommit;
+
+    @Value("${query_timeout}")
+    private int queryTimeout;
+
+*/
+
+    @Bean
+    public DataSource dataSource() {
+
+        log.info("driverClassName={};jdbcUrl={};", driverClassName, jdbcUrl);
 
         DruidDataSource dataSource = new DruidDataSource();
         dataSource.setDriverClassName(driverClassName);
@@ -91,8 +122,8 @@ public class DBConfig {
     }
 
     @Bean
-    public MapperScannerConfigurer mapperScannerConfigurer(@Autowired SqlSessionFactoryBean sqlSessionFactoryBean) {
-        MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
+    public MyMapperScannerConfigurer mapperScannerConfigurer(@Autowired SqlSessionFactoryBean sqlSessionFactoryBean) {
+        MyMapperScannerConfigurer mapperScannerConfigurer = new MyMapperScannerConfigurer();
         mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactoryBean");
         mapperScannerConfigurer.setAnnotationClass(Repository.class);
         mapperScannerConfigurer.setBasePackage("com.wjt.dao");
@@ -100,21 +131,39 @@ public class DBConfig {
         return mapperScannerConfigurer;
     }
 
-    *//**
-     * 十月 15, 2020 11:33:13 下午 org.springframework.context.annotation.ConfigurationClassPostProcessor enhanceConfigurationClasses
-     * 警告: Cannot enhance @Configuration bean definition 'DBConfig' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
-     * 十月 15, 2020 11:33:13 下午 org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor <init>
-     * 信息: JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
-     * @param dataSource
-     * @return
-     *//*
     @Bean
     public static DataSourceTransactionManager transactionManager(@Autowired DataSource dataSource) {
         DataSourceTransactionManager dataSourceTransactionManager = new DataSourceTransactionManager(dataSource);
-
         log.info("dataSourceTransactionManager={};", dataSourceTransactionManager);
         return dataSourceTransactionManager;
     }
+
+
+    /**
+     * 要想使用@Value 用${}占位符注入属性，这个bean是必须的，这个就是占位bean,另一种方式是不用value直接用Envirment变量直接getProperty('key');
+     * 警告: Cannot enhance @Configuration bean definition 'DBConfig' since its singleton instance has been created too early.
+     * The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+     *
+     * @return
+     */
+/*
+    @Bean
+    public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
+        PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer = new PropertySourcesPlaceholderConfigurer();
+        log.info("propertySourcesPlaceholderConfigurer={};", propertySourcesPlaceholderConfigurer);
+        return propertySourcesPlaceholderConfigurer;
+    }
+*/
+
+/**
+ * 十月 15, 2020 11:33:13 下午 org.springframework.context.annotation.ConfigurationClassPostProcessor enhanceConfigurationClasses
+ * 警告: Cannot enhance @Configuration bean definition 'DBConfig' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+ * 十月 15, 2020 11:33:13 下午 org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor <init>
+ * 信息: JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+ * @param dataSource
+ * @return
+ *//*
+
 
     //要想使用@Value 用${}占位符注入属性，这个bean是必须的，这个就是占位bean,另一种方式是不用value直接用Envirment变量直接getProperty('key')
     @Bean
@@ -122,7 +171,9 @@ public class DBConfig {
         PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer = new PropertySourcesPlaceholderConfigurer();
         log.info("propertySourcesPlaceholderConfigurer={};", propertySourcesPlaceholderConfigurer);
         return propertySourcesPlaceholderConfigurer;
-    }*/
+    }
+
+    */
 
 
 }
