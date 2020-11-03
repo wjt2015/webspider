@@ -106,7 +106,6 @@ public class JueJinServiceImpl implements JueJinService {
             List<WebElement> webElementList = webDriver.findElements(By.tagName("a"));
             if(CollectionUtils.isNotEmpty(webElementList)){
                 webElementList.forEach(webElement -> {
-
                     String href = webElement.getAttribute("href");
                     if(href!=null){
                         log.info("href={};",href);

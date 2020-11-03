@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mybatis.spring.MySqlSessionFactoryBean;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.MyAnnotationConfigApplicationContext;
 
 import java.lang.reflect.Proxy;
 import java.sql.Connection;
@@ -28,7 +29,7 @@ public class DBConfigTest {
     @Before
     public void init() {
 
-        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(DBConfig.class);
+        MyAnnotationConfigApplicationContext applicationContext = new MyAnnotationConfigApplicationContext(DBConfig.class);
         //applicationContext.register(DBConfig.class);
         juejinArticleMapper = applicationContext.getBean(JuejinArticleMapper.class);
 
@@ -50,7 +51,7 @@ public class DBConfigTest {
 
     @Test
     public void select() {
-        long id = 1L;
+        long id = 20L;
         JuejinArticleEntity juejinArticleEntity = juejinArticleMapper.selectByPrimaryKey(id);
         log.info("juejinArticleEntity={};", juejinArticleEntity);
 

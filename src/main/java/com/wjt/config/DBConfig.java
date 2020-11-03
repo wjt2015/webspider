@@ -10,11 +10,13 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProcessor;
 import org.springframework.context.annotation.*;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import org.springframework.core.env.Environment;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.stereotype.Repository;
+import org.springframework.test.annotation.ProfileValueSourceConfiguration;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -32,8 +34,9 @@ import java.io.IOException;
 @EnableTransactionManagement(proxyTargetClass = true, mode = AdviceMode.PROXY)
 //@ImportResource(locations = {"classpath:dao/mybatis_spring.xml"})
 //@ActiveProfiles(profiles = {"dev"})
-//@PropertySource(value = {"classpath:dao/jdbc.properties"})
+@PropertySource(value = {"classpath:/dao/jdbc.properties"})
 public class DBConfig {
+
 
     //@Value("${driverClassName}")
     private String driverClassName = "com.mysql.cj.jdbc.Driver";
@@ -58,40 +61,14 @@ public class DBConfig {
 
     //@Value("${query_timeout}")
     private int queryTimeout = 2000;
+
     //----
-/*
 
-    @Value("${driverClassName}")
-    private String driverClassName;
 
-    @Value("${wjt_train_jdbc_url}")
-    private String jdbcUrl;
-
-    @Value("${username}")
-    private String username;
-
-    @Value("${password}")
-    private String password;
-
-    @Value("${max_active}")
-    private int maxActive;
-
-    @Value("${min_idle}")
-    private int minIdle;
-
-    @Value("${default_auto_commit}")
-    private boolean defaultAutoCommit;
-
-    @Value("${query_timeout}")
-    private int queryTimeout;
-
-*/
 
     @Bean
     public DataSource dataSource() {
-
         log.info("driverClassName={};jdbcUrl={};", driverClassName, jdbcUrl);
-
         DruidDataSource dataSource = new DruidDataSource();
         dataSource.setDriverClassName(driverClassName);
         dataSource.setUrl(jdbcUrl);
@@ -104,6 +81,30 @@ public class DBConfig {
         log.info("dataSource={};", dataSource);
         return dataSource;
     }
+
+/*
+    @Bean
+    public DataSourceConfig dataSourceConfig() {
+        return new DataSourceConfig();
+    }
+
+    @Bean
+    public DataSource dataSource(@Autowired DataSourceConfig dataSourceConfig) {
+        log.info("dataSourceConfig={};", dataSourceConfig);
+        //log.info("driverClassName={};jdbcUrl={};", driverClassName, jdbcUrl);
+        DruidDataSource dataSource = new DruidDataSource();
+        dataSource.setDriverClassName(dataSourceConfig.driverClassName);
+        dataSource.setUrl(dataSourceConfig.jdbcUrl);
+        dataSource.setUsername(dataSourceConfig.username);
+        dataSource.setPassword(dataSourceConfig.password);
+        dataSource.setMaxActive(dataSourceConfig.maxActive);
+        dataSource.setMinIdle(dataSourceConfig.minIdle);
+        dataSource.setDefaultAutoCommit(dataSourceConfig.defaultAutoCommit);
+        dataSource.setQueryTimeout(dataSourceConfig.queryTimeout);
+        log.info("dataSource={};", dataSource);
+        return dataSource;
+    }
+*/
 
     @Bean
     public SqlSessionFactoryBean sqlSessionFactoryBean(@Autowired DataSource dataSource) throws IOException {
@@ -146,14 +147,12 @@ public class DBConfig {
      *
      * @return
      */
-/*
     @Bean
-    public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
+    public PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
         PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer = new PropertySourcesPlaceholderConfigurer();
         log.info("propertySourcesPlaceholderConfigurer={};", propertySourcesPlaceholderConfigurer);
         return propertySourcesPlaceholderConfigurer;
     }
-*/
 
 /**
  * 十月 15, 2020 11:33:13 下午 org.springframework.context.annotation.ConfigurationClassPostProcessor enhanceConfigurationClasses
