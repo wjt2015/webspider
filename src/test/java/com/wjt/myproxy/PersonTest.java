@@ -10,6 +10,12 @@ public class PersonTest {
     @Test
     public void findLove() {
 
+        XiaoXingXing xiaoXingXing=new XiaoXingXing();
+        MeiPo meiPo = new MeiPo(xiaoXingXing);
+
+        Person proxy=(Person)meiPo.getInstance();
+
+        proxy.findLove();
 
     }
 

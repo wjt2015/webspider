@@ -13,7 +13,7 @@ public class MeiPo implements InvocationHandler {
 
     private Person person;
 
-    public Object getInstance(){
+    public Object getInstance() {
         Object instance = Proxy.newProxyInstance(this.getClass().getClassLoader(), new Class<?>[]{Person.class}, this::invoke);
         return instance;
     }
@@ -21,6 +21,11 @@ public class MeiPo implements InvocationHandler {
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        return method.invoke(this.person,args);
+        log.info("您是小星星,女!");
+        log.info("开始海选 ... ");
+        person.findLove();
+        log.info("如果合适,就继续发展!");
+        //return method.invoke(this.person,args);
+        return null;
     }
 }
