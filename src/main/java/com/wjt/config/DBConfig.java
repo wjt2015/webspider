@@ -65,7 +65,6 @@ public class DBConfig {
     //----
 
 
-
     @Bean
     public DataSource dataSource() {
         log.info("driverClassName={};jdbcUrl={};", driverClassName, jdbcUrl);
@@ -148,7 +147,7 @@ public class DBConfig {
      * @return
      */
     @Bean
-    public PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
+    public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
         PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer = new PropertySourcesPlaceholderConfigurer();
         log.info("propertySourcesPlaceholderConfigurer={};", propertySourcesPlaceholderConfigurer);
         return propertySourcesPlaceholderConfigurer;
