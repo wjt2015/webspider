@@ -7,6 +7,7 @@
     <version>1.0-SNAPSHOT</version>
     <name>webspider</name>
     <url>http://maven.apache.org</url>
+
     <properties>
         <!-- 文件拷贝时的编码 -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -14,6 +15,7 @@
         <!-- 编译时的编码 -->
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
         <spring.version>4.3.8.RELEASE</spring.version>
+       <!-- <spring.version>4.3.8.RELEASE</spring.version>-->
     </properties>
 
     <dependencies>

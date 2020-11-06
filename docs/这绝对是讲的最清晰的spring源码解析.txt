@@ -1,0 +1,11 @@
+{
+这绝对是讲的最清晰的spring源码解析
+https://www.bilibili.com/video/BV1sk4y1B7Xd?p=2
+}
+{
+spring bean:
+class -> beanDefinition -> BeanFactoryPostProcessor -> new A()->填充属性->Aware->初始化->aop->单例池
+
+
+
+}

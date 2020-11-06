@@ -32,8 +32,8 @@ public class ServiceConfigTest {
 
         this.applicationContext = new MyAnnotationConfigApplicationContext(ServiceConfig.class, SpiderConfig.class);
 
-        //OkHttpClient okHttpClient = applicationContext.getBean(OkHttpClient.class);
-        //JsoupService jsoupService = applicationContext.getBean(JsoupService.class);
+        OkHttpClient okHttpClient = applicationContext.getBean(OkHttpClient.class);
+        JsoupService jsoupService = applicationContext.getBean(JsoupService.class);
 
         //this.jueJinService = applicationContext.getBean(JueJinService.class);
 
