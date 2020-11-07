@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c290dd26-1c18-4844-8e69-349b760ac01c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/spring笔记.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/spring笔记.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/这绝对是讲的最清晰的spring源码解析.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/这绝对是讲的最清晰的spring源码解析.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/深入分析Spring源码" beforeDir="false" afterPath="$PROJECT_DIR$/docs/深入分析Spring源码" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/wjt/config/ServiceConfigTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/wjt/config/ServiceConfigTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/wjt/myproxy/PersonTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/wjt/myproxy/PersonTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,20 +30,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/docs/spring笔记.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/wjt/config/ServiceConfigTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-104">
-              <caret line="46" column="30" selection-start-line="46" selection-start-column="30" selection-end-line="46" selection-end-column="30" />
+            <state relative-caret-position="372">
+              <caret line="123" selection-start-line="123" selection-end-line="123" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -51,10 +43,55 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.3.8.RELEASE/spring-context-4.3.8.RELEASE-sources.jar!/org/springframework/context/annotation/AutoProxyRegistrar.java">
+        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/src.zip!/javax/tools/JavaCompiler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="74" selection-start-line="74" selection-end-line="74" />
+            <state relative-caret-position="-1726">
+              <caret line="25" column="19" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/wjt/myproxy/PersonTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="58" selection-start-line="58" selection-end-line="58" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/docs/深入分析Spring源码">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="297">
+              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/src.zip!/javax/tools/StandardJavaFileManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="155">
+              <caret line="139" column="56" selection-start-line="139" selection-start-column="56" selection-end-line="139" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/src.zip!/javax/tools/JavaFileManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="155">
+              <caret line="104" column="45" selection-start-line="104" selection-start-column="45" selection-end-line="104" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/src.zip!/java/io/Closeable.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="160">
+              <caret line="36" column="17" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -72,7 +109,7 @@
         <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.3.8.RELEASE/spring-context-4.3.8.RELEASE-sources.jar!/org/springframework/context/annotation/ConfigurationClass.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="247">
-              <caret line="166" lean-forward="true" selection-start-line="166" selection-end-line="166" />
+              <caret line="166" selection-start-line="166" selection-end-line="166" />
               <folding>
                 <element signature="e#2008#2028#0" expanded="true" />
                 <element signature="e#6037#6038#0" expanded="true" />
@@ -86,43 +123,7 @@
         <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/4.3.8.RELEASE/spring-beans-4.3.8.RELEASE-sources.jar!/org/springframework/beans/factory/ObjectFactory.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="188">
-              <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.3.8.RELEASE/spring-aop-4.3.8.RELEASE-sources.jar!/org/springframework/aop/config/AopConfigUtils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="107" column="34" selection-start-line="107" selection-start-column="34" selection-end-line="107" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.3.8.RELEASE/spring-context-4.3.8.RELEASE-sources.jar!/org/springframework/context/annotation/Configuration.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="408" column="74" selection-start-line="408" selection-start-column="70" selection-end-line="408" selection-end-column="74" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/4.3.8.RELEASE/spring-core-4.3.8.RELEASE-sources.jar!/org/springframework/core/annotation/AnnotationAttributes.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="48" column="13" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/wjt/config/DBConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="46" column="27" lean-forward="true" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
+              <caret line="38" selection-start-line="38" selection-end-line="38" />
             </state>
           </provider>
         </entry>
@@ -197,7 +198,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/org/apache/ibatis/session/defaults/MyDefaultSqlSessionFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/apache/ibatis/session/MySqlSessionFactoryBuilder.java" />
         <option value="$PROJECT_DIR$/src/main/resources/dao/mybatis_spring.xml" />
         <option value="$PROJECT_DIR$/src/main/java/org/mybatis/spring/mapper/MyMapperScannerConfigurer.java" />
@@ -238,8 +238,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/wjt/myproxy/XiaoXingXing.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/wjt/myproxy/Person.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/wjt/myproxy/MeiPo.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/wjt/myproxy/PersonTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/wjt/config/ServiceConfigTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/springframework/context/support/AbstractMyApplicationContext.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/myspring/DefaultBeanFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/myspring/PreBuildSingletonBeanFactory.java" />
@@ -248,6 +246,9 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/docs/这绝对是讲的最清晰的spring源码解析.txt" />
         <option value="$PROJECT_DIR$/docs/spring笔记.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/com/wjt/config/ServiceConfigTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/wjt/myproxy/PersonTest.java" />
+        <option value="$PROJECT_DIR$/docs/深入分析Spring源码" />
       </list>
     </option>
   </component>
@@ -341,6 +342,46 @@
               <item name="webspider" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="wjt" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webspider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webspider" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="wjt" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webspider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webspider" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="wjt" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webspider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webspider" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="wjt" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webspider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webspider" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -367,27 +408,39 @@
             <path>
               <item name="webspider" type="b2602c69:ProjectViewProjectNode" />
               <item name="webspider" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="webspider" type="b2602c69:ProjectViewProjectNode" />
-              <item name="webspider" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="webspider" type="b2602c69:ProjectViewProjectNode" />
-              <item name="webspider" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="webspider" type="b2602c69:ProjectViewProjectNode" />
               <item name="webspider" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="wjt" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webspider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webspider" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="wjt" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webspider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webspider" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="wjt" type="462c0819:PsiDirectoryNode" />
+              <item name="myproxy" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="webspider" type="b2602c69:ProjectViewProjectNode" />
@@ -518,7 +571,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1604737095138" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1604737916977" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -568,7 +621,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ServiceConfigTest.save">
+  <component name="RunManager" selected="JUnit.PersonTest.javaCompiler">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
@@ -586,6 +639,23 @@
       <option name="PACKAGE_NAME" value="com.wjt.myproxy" />
       <option name="MAIN_CLASS_NAME" value="com.wjt.myproxy.PersonTest" />
       <option name="METHOD_NAME" value="findLove" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PersonTest.javaCompiler" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="webspider" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.wjt.myproxy.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.wjt.myproxy" />
+      <option name="MAIN_CLASS_NAME" value="com.wjt.myproxy.PersonTest" />
+      <option name="METHOD_NAME" value="javaCompiler" />
       <option name="TEST_OBJECT" value="method" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
@@ -620,23 +690,6 @@
       <option name="PACKAGE_NAME" value="com.wjt.config" />
       <option name="MAIN_CLASS_NAME" value="com.wjt.config.ServiceConfigTest" />
       <option name="METHOD_NAME" value="getMergedBeanDefinition" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ServiceConfigTest.resolvableType" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="webspider" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.wjt.config.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.wjt.config" />
-      <option name="MAIN_CLASS_NAME" value="com.wjt.config.ServiceConfigTest" />
-      <option name="METHOD_NAME" value="resolvableType" />
       <option name="TEST_OBJECT" value="method" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
@@ -678,18 +731,18 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.ServiceConfigTest.save" />
-      <item itemvalue="JUnit.ServiceConfigTest.resolvableType" />
       <item itemvalue="JUnit.ServiceConfigTest.getBeanNamesForType" />
       <item itemvalue="JUnit.ServiceConfigTest.getMergedBeanDefinition" />
       <item itemvalue="JUnit.PersonTest.findLove" />
+      <item itemvalue="JUnit.PersonTest.javaCompiler" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PersonTest.javaCompiler" />
         <item itemvalue="JUnit.ServiceConfigTest.save" />
         <item itemvalue="JUnit.PersonTest.findLove" />
         <item itemvalue="JUnit.ServiceConfigTest.getMergedBeanDefinition" />
         <item itemvalue="JUnit.ServiceConfigTest.getBeanNamesForType" />
-        <item itemvalue="JUnit.ServiceConfigTest.resolvableType" />
       </list>
     </recent_temporary>
   </component>
@@ -759,14 +812,11 @@
       <workItem from="1604543199925" duration="3000" />
       <workItem from="1604543364370" duration="18559000" />
       <workItem from="1604596593066" duration="176000" />
-      <workItem from="1604629771402" duration="24406000" />
+      <workItem from="1604629771402" duration="25697000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="PersonTest_findLove - 2020.11.05 at 23h 40m 01s.xml">
-      <configuration name="PersonTest.findLove" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="PersonTest_findLove - 2020.11.05 at 23h 41m 06s.xml">
       <configuration name="PersonTest.findLove" configurationId="JUnit" />
     </history-entry>
@@ -794,9 +844,12 @@
     <history-entry file="ServiceConfigTest_save - 2020.11.07 at 00h 36m 45s.xml">
       <configuration name="ServiceConfigTest.save" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="PersonTest_javaCompiler - 2020.11.07 at 16h 31m 11s.xml">
+      <configuration name="PersonTest.javaCompiler" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="365837000" />
+    <option name="totallyTimeSpent" value="367128000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="811" extended-state="6" />
@@ -812,12 +865,12 @@
       <window_info id="Learn" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.16748166" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.4608187" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.32684284" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.4603616" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.32684284" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49932975" weight="0.19926651" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49932975" weight="0.2976356" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50067025" side_tool="true" weight="0.329235" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" />
@@ -949,55 +1002,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.3.8.RELEASE/spring-context-4.3.8.RELEASE-sources.jar!/org/springframework/instrument/classloading/LoadTimeWeaver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="32" column="17" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.3.8.RELEASE/spring-context-4.3.8.RELEASE-sources.jar!/org/springframework/context/weaving/LoadTimeWeaverAware.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="30" column="17" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/4.3.8.RELEASE/spring-beans-4.3.8.RELEASE-sources.jar!/org/springframework/beans/factory/SmartInitializingSingleton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="55" column="9" selection-start-line="55" selection-start-column="9" selection-end-line="55" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.3.8.RELEASE/spring-context-4.3.8.RELEASE-sources.jar!/org/springframework/scheduling/annotation/ScheduledAnnotationBeanPostProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="183" column="16" selection-start-line="183" selection-start-column="16" selection-end-line="183" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.3.8.RELEASE/spring-context-4.3.8.RELEASE-sources.jar!/org/springframework/context/support/LiveBeansView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="63" column="16" selection-start-line="63" selection-start-column="16" selection-end-line="63" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.3.8.RELEASE/spring-context-4.3.8.RELEASE-sources.jar!/org/springframework/context/Lifecycle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-290">
-          <caret line="48" column="17" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.3.8.RELEASE/spring-context-4.3.8.RELEASE-sources.jar!/org/springframework/context/LifecycleProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="25" column="47" lean-forward="true" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.3.8.RELEASE/spring-context-4.3.8.RELEASE.jar!/org/springframework/context/support/DefaultLifecycleProcessor.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="101">
@@ -1082,13 +1086,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1250">
           <caret line="96" column="9" selection-start-line="96" selection-start-column="9" selection-end-line="96" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/src.zip!/java/io/Closeable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="51" column="20" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -1333,14 +1330,14 @@
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/4.3.8.RELEASE/spring-beans-4.3.8.RELEASE-sources.jar!/org/springframework/beans/factory/ObjectFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="188">
-          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
         </state>
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.3.8.RELEASE/spring-context-4.3.8.RELEASE-sources.jar!/org/springframework/context/annotation/ConfigurationClass.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
-          <caret line="166" lean-forward="true" selection-start-line="166" selection-end-line="166" />
+          <caret line="166" selection-start-line="166" selection-end-line="166" />
           <folding>
             <element signature="e#2008#2028#0" expanded="true" />
             <element signature="e#6037#6038#0" expanded="true" />
@@ -1349,20 +1346,74 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/docs/spring笔记.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/lib/tools.jar!/com/sun/tools/javac/main/JavaCompiler.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1991">
+          <caret line="100" column="13" selection-start-line="100" selection-start-column="13" selection-end-line="100" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/wjt/config/ServiceConfigTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-104">
-          <caret line="46" column="30" selection-start-line="46" selection-start-column="30" selection-end-line="46" selection-end-column="30" />
+        <state relative-caret-position="372">
+          <caret line="123" selection-start-line="123" selection-end-line="123" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/spring笔记.txt">
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/src.zip!/javax/tools/JavaCompiler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="-1726">
+          <caret line="25" column="19" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/src.zip!/java/io/Closeable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="36" column="17" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/src.zip!/javax/tools/JavaFileManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="104" column="45" selection-start-line="104" selection-start-column="45" selection-end-line="104" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/src.zip!/javax/tools/StandardJavaFileManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="139" column="56" selection-start-line="139" selection-start-column="56" selection-end-line="139" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wjt/service/impl/BloomFilterImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-392" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/wjt/myproxy/PersonTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="58" selection-start-line="58" selection-end-line="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/深入分析Spring源码">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
         </state>
       </provider>
     </entry>
