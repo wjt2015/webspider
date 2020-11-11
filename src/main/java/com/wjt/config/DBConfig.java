@@ -34,7 +34,7 @@ import java.io.IOException;
 @EnableTransactionManagement(proxyTargetClass = true, mode = AdviceMode.PROXY)
 //@ImportResource(locations = {"classpath:dao/mybatis_spring.xml"})
 //@ActiveProfiles(profiles = {"dev"})
-@PropertySource(value = {"classpath:/dao/jdbc.properties"})
+@PropertySource(value = {"classpath:dao/jdbc.properties"})
 public class DBConfig {
 
 

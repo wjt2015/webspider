@@ -8,6 +8,9 @@ import org.junit.Test;
 import org.mybatis.spring.MySqlSessionFactoryBean;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.MyAnnotationConfigApplicationContext;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import org.springframework.core.env.MutablePropertySources;
+import org.springframework.core.env.StandardEnvironment;
 
 import java.lang.reflect.Proxy;
 import java.sql.Connection;
@@ -74,6 +77,41 @@ public class DBConfigTest {
         log.info("update={};", update);
 
     }
+
+
+    /**
+     * 十分钟快速教你理解Spring中的FactoryBean接口,
+     * (https://zhuanlan.zhihu.com/p/97005407);
+     */
+    @Test
+    public void factoryBean(){
+
+    }
+
+    @Test
+    public void propertySourcesPlaceholderConfigurer() {
+
+        PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer = new PropertySourcesPlaceholderConfigurer();
+
+        MutablePropertySources mutablePropertySources = new MutablePropertySources();
+
+        StandardEnvironment standardEnvironment = new StandardEnvironment();
+        String s = standardEnvironment.resolvePlaceholders("${wjt_train_jdbc_url}");
+        log.info("s={};", s);
+
+    }
+
+    @Test
+    public void nullInstanceof() {
+
+        String s = null;
+        boolean b = (s instanceof String);
+        log.info("b={};", b);
+        b = (s instanceof Object);
+        log.info("b={};", b);
+    }
+
+
 
     /**
      * mvn clean test -Dtest=com.wjt.config.DBConfigTest#jdbc

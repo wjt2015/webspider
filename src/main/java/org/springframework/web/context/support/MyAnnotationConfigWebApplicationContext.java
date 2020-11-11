@@ -21,7 +21,7 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 import org.springframework.beans.factory.support.BeanNameGenerator;
-import org.springframework.beans.factory.support.DefaultListableBeanFactory;
+import org.springframework.beans.factory.support.MyDefaultListableBeanFactory;
 import org.springframework.context.annotation.AnnotatedBeanDefinitionReader;
 import org.springframework.context.annotation.AnnotationConfigRegistry;
 import org.springframework.context.annotation.AnnotationConfigUtils;
@@ -137,7 +137,7 @@ public class MyAnnotationConfigWebApplicationContext extends AbstractMyRefreshab
      * @param annotatedClasses one or more annotated classes,
      * e.g. {@link org.springframework.context.annotation.Configuration @Configuration} classes
      * @see #scan(String...)
-     * @see #loadBeanDefinitions(DefaultListableBeanFactory)
+     * @see #loadBeanDefinitions(MyDefaultListableBeanFactory)
      * @see #setConfigLocation(String)
      * @see #refresh()
      */
@@ -151,7 +151,7 @@ public class MyAnnotationConfigWebApplicationContext extends AbstractMyRefreshab
      * <p>Note that {@link #refresh()} must be called in order for the context
      * to fully process the new classes.
      * @param basePackages the packages to check for annotated classes
-     * @see #loadBeanDefinitions(DefaultListableBeanFactory)
+     * @see #loadBeanDefinitions(MyDefaultListableBeanFactory)
      * @see #register(Class...)
      * @see #setConfigLocation(String)
      * @see #refresh()
@@ -185,7 +185,7 @@ public class MyAnnotationConfigWebApplicationContext extends AbstractMyRefreshab
      * @see ClassPathBeanDefinitionScanner
      */
     @Override
-    protected void loadBeanDefinitions(DefaultListableBeanFactory beanFactory) {
+    protected void loadBeanDefinitions(MyDefaultListableBeanFactory beanFactory) {
         AnnotatedBeanDefinitionReader reader = getAnnotatedBeanDefinitionReader(beanFactory);
         ClassPathBeanDefinitionScanner scanner = getClassPathBeanDefinitionScanner(beanFactory);
 
@@ -258,7 +258,7 @@ public class MyAnnotationConfigWebApplicationContext extends AbstractMyRefreshab
      * @see #getBeanNameGenerator()
      * @see #getScopeMetadataResolver()
      */
-    protected AnnotatedBeanDefinitionReader getAnnotatedBeanDefinitionReader(DefaultListableBeanFactory beanFactory) {
+    protected AnnotatedBeanDefinitionReader getAnnotatedBeanDefinitionReader(MyDefaultListableBeanFactory beanFactory) {
         return new AnnotatedBeanDefinitionReader(beanFactory, getEnvironment());
     }
 
@@ -272,7 +272,7 @@ public class MyAnnotationConfigWebApplicationContext extends AbstractMyRefreshab
      * @see #getBeanNameGenerator()
      * @see #getScopeMetadataResolver()
      */
-    protected ClassPathBeanDefinitionScanner getClassPathBeanDefinitionScanner(DefaultListableBeanFactory beanFactory) {
+    protected ClassPathBeanDefinitionScanner getClassPathBeanDefinitionScanner(MyDefaultListableBeanFactory beanFactory) {
         return new ClassPathBeanDefinitionScanner(beanFactory, true, getEnvironment());
     }
 

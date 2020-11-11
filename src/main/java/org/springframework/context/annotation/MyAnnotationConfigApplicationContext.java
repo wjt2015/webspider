@@ -19,6 +19,7 @@ package org.springframework.context.annotation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.support.BeanNameGenerator;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
+import org.springframework.beans.factory.support.MyDefaultListableBeanFactory;
 import org.springframework.context.support.GenericApplicationContext;
 import org.springframework.context.support.MyGenericApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
@@ -69,7 +70,7 @@ public class MyAnnotationConfigApplicationContext extends MyGenericApplicationCo
      * Create a new MyAnnotationConfigApplicationContext with the given DefaultListableBeanFactory.
      * @param beanFactory the DefaultListableBeanFactory instance to use for this context
      */
-    public MyAnnotationConfigApplicationContext(DefaultListableBeanFactory beanFactory) {
+    public MyAnnotationConfigApplicationContext(MyDefaultListableBeanFactory beanFactory) {
         super(beanFactory);
         this.reader = new AnnotatedBeanDefinitionReader(this);
         this.scanner = new ClassPathBeanDefinitionScanner(this);

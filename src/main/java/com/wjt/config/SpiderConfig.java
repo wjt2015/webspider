@@ -6,10 +6,12 @@ import lombok.extern.slf4j.Slf4j;
 import okhttp3.OkHttpClient;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.Scope;
 
 import java.util.concurrent.TimeUnit;
 
@@ -23,6 +25,7 @@ public class SpiderConfig {
         System.setProperty("webdriver.chrome.driver", Constants.CHROME_DRIVER_BIN);
     }
 
+    @Scope(scopeName = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
     @Bean
     public OkHttpClient okHttpClient() {
         final OkHttpClient okHttpClient = new OkHttpClient.Builder()

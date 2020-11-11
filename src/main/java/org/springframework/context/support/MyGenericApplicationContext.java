@@ -27,7 +27,7 @@ import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
-import org.springframework.beans.factory.support.DefaultListableBeanFactory;
+import org.springframework.beans.factory.support.MyDefaultListableBeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
@@ -36,7 +36,7 @@ import org.springframework.util.Assert;
 
 /**
  * Generic ApplicationContext implementation that holds a single internal
- * {@link org.springframework.beans.factory.support.DefaultListableBeanFactory}
+ * {@link org.springframework.beans.factory.support.MyDefaultListableBeanFactory}
  * instance and does not assume a specific bean definition format. Implements
  * the {@link org.springframework.beans.factory.support.BeanDefinitionRegistry}
  * interface in order to allow for applying any bean definition readers to it.
@@ -89,7 +89,7 @@ import org.springframework.util.Assert;
 @Slf4j
 public class MyGenericApplicationContext extends AbstractMyApplicationContext implements BeanDefinitionRegistry {
 
-    private final DefaultListableBeanFactory beanFactory;
+    private final MyDefaultListableBeanFactory beanFactory;
 
     private ResourceLoader resourceLoader;
 
@@ -104,16 +104,16 @@ public class MyGenericApplicationContext extends AbstractMyApplicationContext im
      * @see #refresh
      */
     public MyGenericApplicationContext() {
-        this.beanFactory = new DefaultListableBeanFactory();
+        this.beanFactory = new MyDefaultListableBeanFactory();
     }
 
     /**
-     * Create a new MyGenericApplicationContext with the given DefaultListableBeanFactory.
-     * @param beanFactory the DefaultListableBeanFactory instance to use for this context
+     * Create a new MyGenericApplicationContext with the given MyDefaultListableBeanFactory.
+     * @param beanFactory the MyDefaultListableBeanFactory instance to use for this context
      * @see #registerBeanDefinition
      * @see #refresh
      */
-    public MyGenericApplicationContext(DefaultListableBeanFactory beanFactory) {
+    public MyGenericApplicationContext(MyDefaultListableBeanFactory beanFactory) {
         Assert.notNull(beanFactory, "BeanFactory must not be null");
         this.beanFactory = beanFactory;
     }
@@ -130,13 +130,13 @@ public class MyGenericApplicationContext extends AbstractMyApplicationContext im
     }
 
     /**
-     * Create a new MyGenericApplicationContext with the given DefaultListableBeanFactory.
-     * @param beanFactory the DefaultListableBeanFactory instance to use for this context
+     * Create a new MyGenericApplicationContext with the given MyDefaultListableBeanFactory.
+     * @param beanFactory the MyDefaultListableBeanFactory instance to use for this context
      * @param parent the parent application context
      * @see #registerBeanDefinition
      * @see #refresh
      */
-    public MyGenericApplicationContext(DefaultListableBeanFactory beanFactory, ApplicationContext parent) {
+    public MyGenericApplicationContext(MyDefaultListableBeanFactory beanFactory, ApplicationContext parent) {
         this(beanFactory);
         setParent(parent);
     }
@@ -163,7 +163,7 @@ public class MyGenericApplicationContext extends AbstractMyApplicationContext im
      * a different definition with the same name, automatically replacing the former.
      * If not, an exception will be thrown. Default is "true".
      * @since 3.0
-     * @see org.springframework.beans.factory.support.DefaultListableBeanFactory#setAllowBeanDefinitionOverriding
+     * @see org.springframework.beans.factory.support.MyDefaultListableBeanFactory#setAllowBeanDefinitionOverriding
      */
     public void setAllowBeanDefinitionOverriding(boolean allowBeanDefinitionOverriding) {
         this.beanFactory.setAllowBeanDefinitionOverriding(allowBeanDefinitionOverriding);
@@ -175,7 +175,7 @@ public class MyGenericApplicationContext extends AbstractMyApplicationContext im
      * <p>Default is "true". Turn this off to throw an exception when encountering
      * a circular reference, disallowing them completely.
      * @since 3.0
-     * @see org.springframework.beans.factory.support.DefaultListableBeanFactory#setAllowCircularReferences
+     * @see org.springframework.beans.factory.support.MyDefaultListableBeanFactory#setAllowCircularReferences
      */
     public void setAllowCircularReferences(boolean allowCircularReferences) {
         this.beanFactory.setAllowCircularReferences(allowCircularReferences);
@@ -298,9 +298,9 @@ public class MyGenericApplicationContext extends AbstractMyApplicationContext im
      * <p><b>NOTE:</b> You need to call {@link #refresh()} to initialize the
      * bean factory and its contained beans with application context semantics
      * (autodetecting BeanFactoryPostProcessors, etc).
-     * @return the internal bean factory (as DefaultListableBeanFactory)
+     * @return the internal bean factory (as MyDefaultListableBeanFactory)
      */
-    public final DefaultListableBeanFactory getDefaultListableBeanFactory() {
+    public final MyDefaultListableBeanFactory getDefaultListableBeanFactory() {
         return this.beanFactory;
     }
 

@@ -6,16 +6,22 @@ import com.wjt.service.impl.JsoupServiceImpl;
 import com.wjt.service.impl.JueJinServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.OkHttpClient;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.context.annotation.MyAnnotationConfigApplicationContext;
 import org.springframework.core.ResolvableType;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.support.PropertiesLoaderUtils;
 import redis.clients.jedis.MyJedisPool;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Properties;
 
 @Slf4j
 //@RunWith(SpringJUnit4ClassRunner.class)
@@ -30,15 +36,32 @@ public class ServiceConfigTest {
     @Before
     public void init() {
 
+        OkHttpClient okHttpClient=null;
+        JsoupService jsoupService=null;
+
         this.applicationContext = new MyAnnotationConfigApplicationContext(ServiceConfig.class, SpiderConfig.class);
 
-        OkHttpClient okHttpClient = applicationContext.getBean(OkHttpClient.class);
-        JsoupService jsoupService = applicationContext.getBean(JsoupService.class);
+        okHttpClient=(OkHttpClient) this.applicationContext.getBean("okHttpClient");
+
+
+/*        okHttpClient = applicationContext.getBean(OkHttpClient.class);
+        jsoupService = applicationContext.getBean(JsoupService.class);*/
 
         //this.jueJinService = applicationContext.getBean(JueJinService.class);
 
-        //log.info("applicationContext={};jueJinService={};okHttpClient={};jsoupService={};", applicationContext, jueJinService, okHttpClient, jsoupService);
+        log.info("applicationContext={};jueJinService={};okHttpClient={};jsoupService={};", applicationContext, jueJinService, okHttpClient, jsoupService);
 
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            WebDriver chromeDriver = this.applicationContext.getBean("chromeDriver", WebDriver.class);
+            WebDriver chromeDriverForDetail = this.applicationContext.getBean("chromeDriverForDetail", WebDriver.class);
+            chromeDriver.quit();
+            chromeDriverForDetail.quit();
+            log.info("webDriver quit!");
+        }));
+    }
+
+    @After
+    public void destroy() {
     }
 
     @Test
@@ -48,6 +71,9 @@ public class ServiceConfigTest {
         jueJinService.getJuejinArticles(url);
 
         log.info("getJuejinArticles_finish!");
+
+        ConfigurableListableBeanFactory beanFactory = this.applicationContext.getBeanFactory();
+        //beanFactory.addBeanPostProcessor();
     }
 
     @Test
@@ -79,6 +105,54 @@ public class ServiceConfigTest {
         beanName = "myJedisPool";
         beanDefinition = beanFactory.getMergedBeanDefinition(beanName);
         log.info("beanName={};beanDefinition={};", beanName, beanDefinition);
+
+    }
+
+    @Test
+    public void isTypeMatch() {
+
+        String beanName = "okHttpClient";
+        boolean typeMatch = this.applicationContext.isTypeMatch(beanName, OkHttpClient.class);
+        log.info("typeMatch={};", typeMatch);
+
+
+        final OkHttpClient okHttpClientA = this.applicationContext.getBean(OkHttpClient.class);
+        final OkHttpClient okHttpClientB = this.applicationContext.getBean(OkHttpClient.class);
+        log.info("equals? {};okHttpClientA={};okHttpClientB={};", okHttpClientA == okHttpClientB, okHttpClientA, okHttpClientB);
+
+
+    }
+
+    @Test
+    public void beanNamesForType() {
+
+        ConfigurableListableBeanFactory beanFactory = this.applicationContext.getBeanFactory();
+        String[] beanNamesForType = null;
+
+        beanNamesForType = beanFactory.getBeanNamesForType(OkHttpClient.class, true, true);
+        log.info("beanNamesForType={};", beanNamesForType);
+
+/*        beanNamesForType = beanFactory.getBeanNamesForType(WebDriver.class, true, true);
+        log.info("beanNamesForType.length={};beanNamesForType={};", beanNamesForType.length, Arrays.asList(beanNamesForType));
+    */
+
+    }
+
+    /**
+     * 资源文件解析;
+     * 参考:
+     Resource resource = this.resourceLoader.getResource(resolvedLocation);
+     addPropertySource(factory.createPropertySource(name, new EncodedResource(resource, encoding)));
+     PropertiesLoaderUtils
+     public static Properties loadProperties(EncodedResource resource)
+     */
+    @Test
+    public void resource() throws IOException {
+        String location="classpath:dao/jdbc.properties";
+        Resource resource = this.applicationContext.getResource(location);
+        log.info("resource={};",resource);
+        Properties properties = PropertiesLoaderUtils.loadProperties(resource);
+        log.info("properties={};",properties);
 
     }
 
@@ -121,9 +195,6 @@ public class ServiceConfigTest {
         //spring源码学习笔记
 
     }
-
-
-
 
 
 }
