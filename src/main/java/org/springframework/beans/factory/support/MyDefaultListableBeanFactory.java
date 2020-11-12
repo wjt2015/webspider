@@ -116,7 +116,7 @@ import org.springframework.util.StringUtils;
  */
 @Slf4j
 @SuppressWarnings("serial")
-public class MyDefaultListableBeanFactory extends AbstractAutowireCapableBeanFactory
+public class MyDefaultListableBeanFactory extends AbstractMyAutowireCapableBeanFactory
         implements ConfigurableListableBeanFactory, BeanDefinitionRegistry, Serializable {
 
     private static Class<?> javaUtilOptionalClass = null;
@@ -699,7 +699,7 @@ public class MyDefaultListableBeanFactory extends AbstractAutowireCapableBeanFac
                 resolve = (mbd.resolvedConstructorOrFactoryMethod == null);
             }
             if (resolve) {
-                new ConstructorResolver(this).resolveFactoryMethodIfPossible(mbd);
+                new MyConstructorResolver(this).resolveFactoryMethodIfPossible(mbd);
             }
         }
         return resolver.isAutowireCandidate(

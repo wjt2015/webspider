@@ -10,8 +10,11 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
+import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
+import org.springframework.beans.factory.support.MyDefaultListableBeanFactory;
+import org.springframework.beans.factory.support.RootBeanDefinition;
 import org.springframework.context.annotation.MyAnnotationConfigApplicationContext;
 import org.springframework.core.ResolvableType;
 import org.springframework.core.io.Resource;
@@ -33,15 +36,18 @@ public class ServiceConfigTest {
 
     private MyAnnotationConfigApplicationContext applicationContext;
 
+    private MyDefaultListableBeanFactory beanFactory;
+
     @Before
     public void init() {
 
-        OkHttpClient okHttpClient=null;
-        JsoupService jsoupService=null;
+        OkHttpClient okHttpClient = null;
+        JsoupService jsoupService = null;
 
         this.applicationContext = new MyAnnotationConfigApplicationContext(ServiceConfig.class, SpiderConfig.class);
+        this.beanFactory = (MyDefaultListableBeanFactory) (this.applicationContext.getBeanFactory());
 
-        okHttpClient=(OkHttpClient) this.applicationContext.getBean("okHttpClient");
+        //okHttpClient=(OkHttpClient) this.applicationContext.getBean("okHttpClient");
 
 
 /*        okHttpClient = applicationContext.getBean(OkHttpClient.class);
@@ -62,6 +68,29 @@ public class ServiceConfigTest {
 
     @After
     public void destroy() {
+    }
+
+    @Test
+    public void getBeanDefinition() {
+
+        String name = "okHttpClient";
+
+/*        RootBeanDefinition rootBeanDefinition = null;
+        BeanDefinition beanDefinition = this.beanFactory.getMergedBeanDefinition(name);
+        log.info("beanDefinition={};", beanDefinition);
+
+        name = "chromeDriverForDetail";
+        beanDefinition = this.beanFactory.getMergedBeanDefinition(name);
+
+        rootBeanDefinition = (RootBeanDefinition) beanDefinition;
+        log.info("beanDefinition={};rootBeanDefinition={};targetType={};beanClassName={};", beanDefinition, rootBeanDefinition, rootBeanDefinition.getTargetType(), rootBeanDefinition.getBeanClassName());
+
+        name = "okHttpClient";
+        //this.beanFactory.createBean(name,rootBeanDefinition);*/
+
+        Object bean = this.applicationContext.getBean(name);
+        log.info("bean={};", bean);
+
     }
 
     @Test
@@ -141,18 +170,18 @@ public class ServiceConfigTest {
     /**
      * 资源文件解析;
      * 参考:
-     Resource resource = this.resourceLoader.getResource(resolvedLocation);
-     addPropertySource(factory.createPropertySource(name, new EncodedResource(resource, encoding)));
-     PropertiesLoaderUtils
-     public static Properties loadProperties(EncodedResource resource)
+     * Resource resource = this.resourceLoader.getResource(resolvedLocation);
+     * addPropertySource(factory.createPropertySource(name, new EncodedResource(resource, encoding)));
+     * PropertiesLoaderUtils
+     * public static Properties loadProperties(EncodedResource resource)
      */
     @Test
     public void resource() throws IOException {
-        String location="classpath:dao/jdbc.properties";
+        String location = "classpath:dao/jdbc.properties";
         Resource resource = this.applicationContext.getResource(location);
-        log.info("resource={};",resource);
+        log.info("resource={};", resource);
         Properties properties = PropertiesLoaderUtils.loadProperties(resource);
-        log.info("properties={};",properties);
+        log.info("properties={};", properties);
 
     }
 

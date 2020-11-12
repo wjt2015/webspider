@@ -35,9 +35,10 @@ import java.io.IOException;
 //@ImportResource(locations = {"classpath:dao/mybatis_spring.xml"})
 //@ActiveProfiles(profiles = {"dev"})
 @PropertySource(value = {"classpath:dao/jdbc.properties"})
+@ComponentScan
 public class DBConfig {
 
-
+/*
     //@Value("${driverClassName}")
     private String driverClassName = "com.mysql.cj.jdbc.Driver";
 
@@ -61,6 +62,32 @@ public class DBConfig {
 
     //@Value("${query_timeout}")
     private int queryTimeout = 2000;
+
+    //----*/
+
+    @Value("${driverClassName}")
+    private String driverClassName;
+
+    @Value("${wjt_train_jdbc_url}")
+    private String jdbcUrl;
+
+    @Value("${username}")
+    private String username;
+
+    @Value("${password}")
+    private String password;
+
+    @Value("${max_active}")
+    private int maxActive;
+
+    @Value("${min_idle}")
+    private int minIdle;
+
+    @Value("${default_auto_commit}")
+    private boolean defaultAutoCommit;
+
+    @Value("${query_timeout}")
+    private int queryTimeout;
 
     //----
 

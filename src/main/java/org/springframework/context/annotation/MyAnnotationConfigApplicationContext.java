@@ -45,14 +45,14 @@ import org.springframework.util.Assert;
  * @since 3.0
  * @see #register
  * @see #scan
- * @see AnnotatedBeanDefinitionReader
+ * @see MyAnnotatedBeanDefinitionReader
  * @see ClassPathBeanDefinitionScanner
  * @see org.springframework.context.support.GenericXmlApplicationContext
  */
 @Slf4j
 public class MyAnnotationConfigApplicationContext extends MyGenericApplicationContext implements AnnotationConfigRegistry {
 
-    private final AnnotatedBeanDefinitionReader reader;
+    private final MyAnnotatedBeanDefinitionReader reader;
 
     private final ClassPathBeanDefinitionScanner scanner;
 
@@ -62,7 +62,7 @@ public class MyAnnotationConfigApplicationContext extends MyGenericApplicationCo
      * through {@link #register} calls and then manually {@linkplain #refresh refreshed}.
      */
     public MyAnnotationConfigApplicationContext() {
-        this.reader = new AnnotatedBeanDefinitionReader(this);
+        this.reader = new MyAnnotatedBeanDefinitionReader(this);
         this.scanner = new ClassPathBeanDefinitionScanner(this);
     }
 
@@ -72,7 +72,7 @@ public class MyAnnotationConfigApplicationContext extends MyGenericApplicationCo
      */
     public MyAnnotationConfigApplicationContext(MyDefaultListableBeanFactory beanFactory) {
         super(beanFactory);
-        this.reader = new AnnotatedBeanDefinitionReader(this);
+        this.reader = new MyAnnotatedBeanDefinitionReader(this);
         this.scanner = new ClassPathBeanDefinitionScanner(this);
     }
 
@@ -102,7 +102,7 @@ public class MyAnnotationConfigApplicationContext extends MyGenericApplicationCo
 
     /**
      * {@inheritDoc}
-     * <p>Delegates given environment to underlying {@link AnnotatedBeanDefinitionReader}
+     * <p>Delegates given environment to underlying {@link MyAnnotatedBeanDefinitionReader}
      * and {@link ClassPathBeanDefinitionScanner} members.
      */
     @Override
@@ -113,12 +113,12 @@ public class MyAnnotationConfigApplicationContext extends MyGenericApplicationCo
     }
 
     /**
-     * Provide a custom {@link BeanNameGenerator} for use with {@link AnnotatedBeanDefinitionReader}
+     * Provide a custom {@link BeanNameGenerator} for use with {@link MyAnnotatedBeanDefinitionReader}
      * and/or {@link ClassPathBeanDefinitionScanner}, if any.
      * <p>Default is {@link org.springframework.context.annotation.AnnotationBeanNameGenerator}.
      * <p>Any call to this method must occur prior to calls to {@link #register(Class...)}
      * and/or {@link #scan(String...)}.
-     * @see AnnotatedBeanDefinitionReader#setBeanNameGenerator
+     * @see MyAnnotatedBeanDefinitionReader#setBeanNameGenerator
      * @see ClassPathBeanDefinitionScanner#setBeanNameGenerator
      */
     public void setBeanNameGenerator(BeanNameGenerator beanNameGenerator) {

@@ -26,13 +26,15 @@ import java.util.Properties;
 @ContextConfiguration(classes = {DBConfig.class})*/
 public class DBConfigTest {
 
+    private MyAnnotationConfigApplicationContext applicationContext;
+
     //@Resource
     private JuejinArticleMapper juejinArticleMapper;
 
     @Before
     public void init() {
 
-        MyAnnotationConfigApplicationContext applicationContext = new MyAnnotationConfigApplicationContext(DBConfig.class);
+        applicationContext = new MyAnnotationConfigApplicationContext(DBConfig.class);
         //applicationContext.register(DBConfig.class);
         juejinArticleMapper = applicationContext.getBean(JuejinArticleMapper.class);
 
@@ -84,7 +86,7 @@ public class DBConfigTest {
      * (https://zhuanlan.zhihu.com/p/97005407);
      */
     @Test
-    public void factoryBean(){
+    public void factoryBean() {
 
     }
 
@@ -111,6 +113,15 @@ public class DBConfigTest {
         log.info("b={};", b);
     }
 
+    /**
+     * 属性值注入;
+     */
+    @Test
+    public void properties() {
+        String name = "dataSource";
+        Object bean = this.applicationContext.getBean(name);
+        log.info("bean={};", bean);
+    }
 
 
     /**
