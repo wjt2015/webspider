@@ -39,6 +39,7 @@ import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
@@ -115,6 +116,7 @@ import org.springframework.util.StringUtils;
  * @see DefaultListableBeanFactory
  * @see BeanDefinitionRegistry
  */
+@Slf4j
 public abstract class AbstractMyAutowireCapableBeanFactory extends AbstractBeanFactory
         implements AutowireCapableBeanFactory {
 
@@ -400,6 +402,9 @@ public abstract class AbstractMyAutowireCapableBeanFactory extends AbstractBeanF
         return initializeBean(beanName, existingBean, null);
     }
 
+    /**
+     * 用BeanPostProcessor前置处理bean;
+     */
     @Override
     public Object applyBeanPostProcessorsBeforeInitialization(Object existingBean, String beanName)
             throws BeansException {
@@ -414,6 +419,9 @@ public abstract class AbstractMyAutowireCapableBeanFactory extends AbstractBeanF
         return result;
     }
 
+    /**
+     * 用BeanPostProcessor后置处理bean;
+     */
     @Override
     public Object applyBeanPostProcessorsAfterInitialization(Object existingBean, String beanName)
             throws BeansException {
@@ -442,6 +450,7 @@ public abstract class AbstractMyAutowireCapableBeanFactory extends AbstractBeanF
      * Central method of this class: creates a bean instance,
      * populates the bean instance, applies post-processors, etc.
      * @see #doCreateBean
+     * 参考(https://www.jianshu.com/p/a85c95a74093);
      */
     @Override
     protected Object createBean(String beanName, RootBeanDefinition mbd, Object[] args) throws BeanCreationException {
@@ -470,6 +479,7 @@ public abstract class AbstractMyAutowireCapableBeanFactory extends AbstractBeanF
 
         try {
             // Give BeanPostProcessors a chance to return a proxy instead of the target bean instance.
+            //AOP在此;
             Object bean = resolveBeforeInstantiation(beanName, mbdToUse);
             if (bean != null) {
                 return bean;
@@ -480,6 +490,7 @@ public abstract class AbstractMyAutowireCapableBeanFactory extends AbstractBeanF
                     "BeanPostProcessor before instantiation of bean failed", ex);
         }
 
+        //真正创建bean;
         Object beanInstance = doCreateBean(beanName, mbdToUse, args);
         if (logger.isDebugEnabled()) {
             logger.debug("Finished creating instance of bean '" + beanName + "'");
@@ -517,6 +528,9 @@ public abstract class AbstractMyAutowireCapableBeanFactory extends AbstractBeanF
         mbd.resolvedTargetType = beanType;
 
         // Allow post-processors to modify the merged bean definition.
+        /**
+         * 允许后置处理器修改beanDefinition;
+         */
         synchronized (mbd.postProcessingLock) {
             if (!mbd.postProcessed) {
                 try {
@@ -535,6 +549,10 @@ public abstract class AbstractMyAutowireCapableBeanFactory extends AbstractBeanF
         boolean earlySingletonExposure = (mbd.isSingleton() && this.allowCircularReferences &&
                 isSingletonCurrentlyInCreation(beanName));
         if (earlySingletonExposure) {
+            /**
+             * 解决单例模式的循环依赖;
+             * 单例模式 & 允许循环依赖 & 当前单例正在被创建;
+             */
             if (logger.isDebugEnabled()) {
                 logger.debug("Eagerly caching bean '" + beanName +
                         "' to allow for resolving potential circular references");
@@ -550,8 +568,14 @@ public abstract class AbstractMyAutowireCapableBeanFactory extends AbstractBeanF
         // Initialize the bean instance.
         Object exposedObject = bean;
         try {
+            /**
+             * 将属性数据从mbd取出加入instanceWrapper,若有属性依赖于其他bean,则递归;
+             */
             populateBean(beanName, mbd, instanceWrapper);
             if (exposedObject != null) {
+                /**
+                 * 初始化当前bean;
+                 */
                 exposedObject = initializeBean(beanName, exposedObject, mbd);
             }
         }
@@ -566,6 +590,9 @@ public abstract class AbstractMyAutowireCapableBeanFactory extends AbstractBeanF
         }
 
         if (earlySingletonExposure) {
+            /**
+             * 解决循环依赖;
+             */
             Object earlySingletonReference = getSingleton(beanName, false);
             if (earlySingletonReference != null) {
                 if (exposedObject == bean) {
@@ -594,6 +621,9 @@ public abstract class AbstractMyAutowireCapableBeanFactory extends AbstractBeanF
 
         // Register bean as disposable.
         try {
+            /**
+             * 为当前的bean指定销毁方法;
+             */
             registerDisposableBeanIfNecessary(beanName, bean, mbd);
         }
         catch (BeanDefinitionValidationException ex) {

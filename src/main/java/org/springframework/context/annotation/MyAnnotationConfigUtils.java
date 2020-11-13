@@ -180,7 +180,7 @@ public class MyAnnotationConfigUtils {
 
         // Check for JSR-250 support, and if present add the CommonAnnotationBeanPostProcessor.
         if (jsr250Present && !registry.containsBeanDefinition(COMMON_ANNOTATION_PROCESSOR_BEAN_NAME)) {
-            RootBeanDefinition def = new RootBeanDefinition(CommonAnnotationBeanPostProcessor.class);
+            RootBeanDefinition def = new RootBeanDefinition(MyCommonAnnotationBeanPostProcessor.class);
             def.setSource(source);
             beanDefs.add(registerPostProcessor(registry, def, COMMON_ANNOTATION_PROCESSOR_BEAN_NAME));
         }

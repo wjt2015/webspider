@@ -47,6 +47,7 @@ public class ServiceConfigTest {
         this.applicationContext = new MyAnnotationConfigApplicationContext(ServiceConfig.class, SpiderConfig.class);
         this.beanFactory = (MyDefaultListableBeanFactory) (this.applicationContext.getBeanFactory());
 
+
         //okHttpClient=(OkHttpClient) this.applicationContext.getBean("okHttpClient");
 
 

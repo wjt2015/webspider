@@ -32,11 +32,11 @@ import java.io.IOException;
 @Slf4j
 @Configuration
 @EnableTransactionManagement(proxyTargetClass = true, mode = AdviceMode.PROXY)
-//@ImportResource(locations = {"classpath:dao/mybatis_spring.xml"})
+@ImportResource(locations = {"classpath:dao/mybatis_spring.xml"})
 //@ActiveProfiles(profiles = {"dev"})
-@PropertySource(value = {"classpath:dao/jdbc.properties"})
-@ComponentScan
+//@PropertySource(value = {"classpath:dao/jdbc.properties"})
 public class DBConfig {
+
 
 /*
     //@Value("${driverClassName}")
@@ -62,8 +62,10 @@ public class DBConfig {
 
     //@Value("${query_timeout}")
     private int queryTimeout = 2000;
+*/
 
-    //----*/
+    //----
+/*
 
     @Value("${driverClassName}")
     private String driverClassName;
@@ -92,6 +94,7 @@ public class DBConfig {
     //----
 
 
+    //@DependsOn(value = {"DBConfig"})
     @Bean
     public DataSource dataSource() {
         log.info("driverClassName={};jdbcUrl={};", driverClassName, jdbcUrl);
@@ -108,6 +111,7 @@ public class DBConfig {
         return dataSource;
     }
 
+*/
 /*
     @Bean
     public DataSourceConfig dataSourceConfig() {
@@ -130,7 +134,8 @@ public class DBConfig {
         log.info("dataSource={};", dataSource);
         return dataSource;
     }
-*/
+*//*
+
 
     @Bean
     public SqlSessionFactoryBean sqlSessionFactoryBean(@Autowired DataSource dataSource) throws IOException {
@@ -154,6 +159,7 @@ public class DBConfig {
         mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactoryBean");
         mapperScannerConfigurer.setAnnotationClass(Repository.class);
         mapperScannerConfigurer.setBasePackage("com.wjt.dao");
+        mapperScannerConfigurer.setProcessPropertyPlaceHolders(true);
         log.info("mapperScannerConfigurer={};", mapperScannerConfigurer);
         return mapperScannerConfigurer;
     }
@@ -166,39 +172,24 @@ public class DBConfig {
     }
 
 
-    /**
+    */
+/**
      * 要想使用@Value 用${}占位符注入属性，这个bean是必须的，这个就是占位bean,另一种方式是不用value直接用Envirment变量直接getProperty('key');
      * 警告: Cannot enhance @Configuration bean definition 'DBConfig' since its singleton instance has been created too early.
      * The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
      *
      * @return
-     */
+     *//*
+
     @Bean
     public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
         PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer = new PropertySourcesPlaceholderConfigurer();
         log.info("propertySourcesPlaceholderConfigurer={};", propertySourcesPlaceholderConfigurer);
         return propertySourcesPlaceholderConfigurer;
     }
-
-/**
- * 十月 15, 2020 11:33:13 下午 org.springframework.context.annotation.ConfigurationClassPostProcessor enhanceConfigurationClasses
- * 警告: Cannot enhance @Configuration bean definition 'DBConfig' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
- * 十月 15, 2020 11:33:13 下午 org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor <init>
- * 信息: JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
- * @param dataSource
- * @return
- *//*
+*/
 
 
-    //要想使用@Value 用${}占位符注入属性，这个bean是必须的，这个就是占位bean,另一种方式是不用value直接用Envirment变量直接getProperty('key')
-    @Bean
-    public PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
-        PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer = new PropertySourcesPlaceholderConfigurer();
-        log.info("propertySourcesPlaceholderConfigurer={};", propertySourcesPlaceholderConfigurer);
-        return propertySourcesPlaceholderConfigurer;
-    }
-
-    */
 
 
 }
