@@ -11,7 +11,9 @@ import org.mybatis.spring.MySqlSessionFactoryBean;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.PropertyValues;
+import org.springframework.beans.SimpleTypeConverter;
 import org.springframework.beans.TypeConverter;
+import org.springframework.beans.TypeConverterSupport;
 import org.springframework.beans.factory.InjectionPoint;
 import org.springframework.beans.factory.UnsatisfiedDependencyException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -214,6 +216,24 @@ public class DBConfigTest {
 
     }
 
+    /**
+     * spring类型转换器;
+     */
+    @Test
+    public void typeConverter() {
+
+        TypeConverter typeConverter = new SimpleTypeConverter();
+        Long t = typeConverter.convertIfNecessary("12323", Long.class);
+        log.info("t={};", t);
+
+        Integer v = typeConverter.convertIfNecessary("-234235", int.class);
+        log.info("v={};", v);
+
+        Double aDouble = typeConverter.convertIfNecessary("-24390.00924", Double.class);
+        log.info("aDouble={};", aDouble);
+
+    }
+
 
     private static final Set<Class<? extends Annotation>> AUTOWIRED_ANNOTATION_TYPES =
             new LinkedHashSet<Class<? extends Annotation>>(Lists.newArrayList(Autowired.class, Value.class));
@@ -329,8 +349,8 @@ public class DBConfigTest {
 
     */
 /**
-     * Class representing injection information about an annotated field.
-     *//*
+ * Class representing injection information about an annotated field.
+ *//*
 
     //private class AutowiredFieldElement extends InjectionMetadata.InjectedElement {
     public static class AutowiredFieldElement extends InjectionMetadata.InjectedElement {
@@ -394,8 +414,8 @@ public class DBConfigTest {
 
     */
 /**
-     * Class representing injection information about an annotated method.
-     *//*
+ * Class representing injection information about an annotated method.
+ *//*
 
     //private class AutowiredMethodElement extends InjectionMetadata.InjectedElement {
 

@@ -475,7 +475,7 @@ public class MyAutowiredAnnotationBeanPostProcessor extends InstantiationAwareBe
     }
 
     private AnnotationAttributes findAutowiredAnnotation(AccessibleObject ao) {
-        log.info("ao={};ao.getAnnotations={};", ao, ao.getAnnotations());
+        log.info("ao={};ao.annotations={};", ao, ao.getAnnotations());
         if (ao.getAnnotations().length > 0) {
             for (Class<? extends Annotation> type : this.autowiredAnnotationTypes) {
                 AnnotationAttributes attributes = AnnotatedElementUtils.getMergedAnnotationAttributes(ao, type);
