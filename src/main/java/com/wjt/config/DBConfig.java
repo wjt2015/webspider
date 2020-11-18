@@ -11,6 +11,8 @@ import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProce
 import org.springframework.context.annotation.*;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.env.Environment;
+import org.springframework.core.env.MapPropertySource;
+import org.springframework.core.env.MutablePropertySources;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
@@ -34,7 +36,7 @@ import java.io.IOException;
 @EnableTransactionManagement(proxyTargetClass = true, mode = AdviceMode.PROXY)
 @ImportResource(locations = {"classpath:dao/mybatis_spring.xml"})
 //@ActiveProfiles(profiles = {"dev"})
-//@PropertySource(value = {"classpath:dao/jdbc.properties"})
+@PropertySource(value = {"classpath:dao/jdbc.properties"})
 public class DBConfig {
 
 
@@ -111,6 +113,8 @@ public class DBConfig {
         return dataSource;
     }
 
+
+
 */
 /*
     @Bean
@@ -137,7 +141,8 @@ public class DBConfig {
 *//*
 
 
-    @Bean
+
+    @Bean(value = "sqlSessionFactoryBean")
     public SqlSessionFactoryBean sqlSessionFactoryBean(@Autowired DataSource dataSource) throws IOException {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource);
@@ -154,7 +159,7 @@ public class DBConfig {
     }
 
     @Bean
-    public MyMapperScannerConfigurer mapperScannerConfigurer(@Autowired SqlSessionFactoryBean sqlSessionFactoryBean) {
+    public MyMapperScannerConfigurer mapperScannerConfigurer() {
         MyMapperScannerConfigurer mapperScannerConfigurer = new MyMapperScannerConfigurer();
         mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactoryBean");
         mapperScannerConfigurer.setAnnotationClass(Repository.class);
@@ -171,7 +176,6 @@ public class DBConfig {
         return dataSourceTransactionManager;
     }
 
-
     */
 /**
      * 要想使用@Value 用${}占位符注入属性，这个bean是必须的，这个就是占位bean,另一种方式是不用value直接用Envirment变量直接getProperty('key');
@@ -181,15 +185,15 @@ public class DBConfig {
      * @return
      *//*
 
+
     @Bean
     public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
         PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer = new PropertySourcesPlaceholderConfigurer();
+
         log.info("propertySourcesPlaceholderConfigurer={};", propertySourcesPlaceholderConfigurer);
         return propertySourcesPlaceholderConfigurer;
     }
 */
-
-
 
 
 }

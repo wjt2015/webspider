@@ -125,7 +125,7 @@ public class MyAnnotationConfigApplicationContext extends MyGenericApplicationCo
         this.reader.setBeanNameGenerator(beanNameGenerator);
         this.scanner.setBeanNameGenerator(beanNameGenerator);
         getBeanFactory().registerSingleton(
-                AnnotationConfigUtils.CONFIGURATION_BEAN_NAME_GENERATOR, beanNameGenerator);
+                MyAnnotationConfigUtils.CONFIGURATION_BEAN_NAME_GENERATOR, beanNameGenerator);
     }
 
     /**

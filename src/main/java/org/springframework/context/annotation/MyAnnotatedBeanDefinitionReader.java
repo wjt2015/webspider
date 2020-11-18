@@ -82,7 +82,7 @@ public class MyAnnotatedBeanDefinitionReader {
         Assert.notNull(environment, "Environment must not be null");
         this.registry = registry;
         this.conditionEvaluator = new ConditionEvaluator(registry, environment, null);
-        AnnotationConfigUtils.registerAnnotationConfigProcessors(this.registry);
+        MyAnnotationConfigUtils.registerAnnotationConfigProcessors(this.registry);
     }
 
 
@@ -190,7 +190,7 @@ public class MyAnnotatedBeanDefinitionReader {
         }
 
         BeanDefinitionHolder definitionHolder = new BeanDefinitionHolder(abd, beanName);
-        definitionHolder = AnnotationConfigUtils.applyScopedProxyMode(scopeMetadata, definitionHolder, this.registry);
+        definitionHolder = MyAnnotationConfigUtils.applyScopedProxyMode(scopeMetadata, definitionHolder, this.registry);
         BeanDefinitionReaderUtils.registerBeanDefinition(definitionHolder, this.registry);
     }
 

@@ -264,7 +264,7 @@ public class MyClassPathBeanDefinitionScanner extends MyClassPathScanningCandida
 
         // Register annotation config processors, if necessary.
         if (this.includeAnnotationConfig) {
-            AnnotationConfigUtils.registerAnnotationConfigProcessors(this.registry);
+            MyAnnotationConfigUtils.registerAnnotationConfigProcessors(this.registry);
         }
 
         return (this.registry.getBeanDefinitionCount() - beanCountAtScanStart);
@@ -282,7 +282,7 @@ public class MyClassPathBeanDefinitionScanner extends MyClassPathScanningCandida
     protected Set<BeanDefinitionHolder> doScan(String... basePackages) {
 
         final long start = System.currentTimeMillis();
-
+        log.info("basePackages={};", basePackages);
         Assert.notEmpty(basePackages, "At least one base package must be specified");
         Set<BeanDefinitionHolder> beanDefinitions = new LinkedHashSet<BeanDefinitionHolder>();
         for (String basePackage : basePackages) {
@@ -298,12 +298,12 @@ public class MyClassPathBeanDefinitionScanner extends MyClassPathScanningCandida
                     postProcessBeanDefinition((AbstractBeanDefinition) candidate, beanName);
                 }
                 if (candidate instanceof AnnotatedBeanDefinition) {
-                    AnnotationConfigUtils.processCommonDefinitionAnnotations((AnnotatedBeanDefinition) candidate);
+                    MyAnnotationConfigUtils.processCommonDefinitionAnnotations((AnnotatedBeanDefinition) candidate);
                 }
                 if (checkCandidate(beanName, candidate)) {
                     BeanDefinitionHolder definitionHolder = new BeanDefinitionHolder(candidate, beanName);
                     definitionHolder =
-                            AnnotationConfigUtils.applyScopedProxyMode(scopeMetadata, definitionHolder, this.registry);
+                            MyAnnotationConfigUtils.applyScopedProxyMode(scopeMetadata, definitionHolder, this.registry);
                     beanDefinitions.add(definitionHolder);
                     registerBeanDefinition(definitionHolder, this.registry);
                 }

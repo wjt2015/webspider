@@ -574,7 +574,7 @@ public abstract class AbstractMyAutowireCapableBeanFactory extends AbstractBeanF
             populateBean(beanName, mbd, instanceWrapper);
             if (exposedObject != null) {
                 /**
-                 * 初始化当前bean;
+                 * 初始化当前bean;Aware+InitializingBean+init_method;
                  */
                 exposedObject = initializeBean(beanName, exposedObject, mbd);
             }

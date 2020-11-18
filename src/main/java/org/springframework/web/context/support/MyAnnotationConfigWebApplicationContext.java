@@ -26,6 +26,7 @@ import org.springframework.context.annotation.AnnotatedBeanDefinitionReader;
 import org.springframework.context.annotation.AnnotationConfigRegistry;
 import org.springframework.context.annotation.AnnotationConfigUtils;
 import org.springframework.context.annotation.ClassPathBeanDefinitionScanner;
+import org.springframework.context.annotation.MyAnnotationConfigUtils;
 import org.springframework.context.annotation.ScopeMetadataResolver;
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
@@ -193,7 +194,7 @@ public class MyAnnotationConfigWebApplicationContext extends AbstractMyRefreshab
         if (beanNameGenerator != null) {
             reader.setBeanNameGenerator(beanNameGenerator);
             scanner.setBeanNameGenerator(beanNameGenerator);
-            beanFactory.registerSingleton(AnnotationConfigUtils.CONFIGURATION_BEAN_NAME_GENERATOR, beanNameGenerator);
+            beanFactory.registerSingleton(MyAnnotationConfigUtils.CONFIGURATION_BEAN_NAME_GENERATOR, beanNameGenerator);
         }
 
         ScopeMetadataResolver scopeMetadataResolver = getScopeMetadataResolver();
