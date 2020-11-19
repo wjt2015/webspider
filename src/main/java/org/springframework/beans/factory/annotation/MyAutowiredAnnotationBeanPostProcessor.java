@@ -600,6 +600,7 @@ public class MyAutowiredAnnotationBeanPostProcessor extends InstantiationAwareBe
                     }
                 }
             }
+            log.info("bean={};field={};value={};", bean, field, value);
             if (value != null) {
                 ReflectionUtils.makeAccessible(field);
                 field.set(bean, value);

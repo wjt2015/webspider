@@ -21,11 +21,14 @@ import org.springframework.beans.factory.annotation.InjectionMetadata;
 import org.springframework.beans.factory.annotation.MyAutowiredAnnotationBeanPostProcessor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.DependencyDescriptor;
+import org.springframework.beans.factory.support.MyDefaultListableBeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.MyAnnotationConfigApplicationContext;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.BridgeMethodResolver;
+import org.springframework.core.DefaultParameterNameDiscoverer;
 import org.springframework.core.MethodParameter;
+import org.springframework.core.ParameterNameDiscoverer;
 import org.springframework.core.annotation.AnnotatedElementUtils;
 import org.springframework.core.annotation.AnnotationAttributes;
 import org.springframework.core.env.MutablePropertySources;
@@ -51,6 +54,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
@@ -71,10 +75,11 @@ public class DBConfigTest {
     public void init() {
 
         //applicationContext = new MyAnnotationConfigApplicationContext(DBConfig.class);
+        applicationContext = new MyAnnotationConfigApplicationContext(DBConfigParam.class);
 
         //applicationContext = new MyAnnotationConfigApplicationContext(DBConfigBasedAnnotation.class);
         //applicationContext.register(DBConfig.class);
-        //juejinArticleMapper = applicationContext.getBean(JuejinArticleMapper.class);
+        juejinArticleMapper = applicationContext.getBean(JuejinArticleMapper.class);
 
         log.info("juejinArticleMapper={};", juejinArticleMapper);
     }
@@ -231,6 +236,38 @@ public class DBConfigTest {
 
         Double aDouble = typeConverter.convertIfNecessary("-24390.00924", Double.class);
         log.info("aDouble={};", aDouble);
+
+    }
+
+    @Test
+    public void dependencyDescriptor(){
+        //DependencyDescriptor dependencyDescriptor=new DependencyDescriptor();
+
+
+    }
+
+    /**
+     * 函数参数名称和类型;
+     */
+    @Test
+    public void parameterNameDiscoverer() {
+
+        ParameterNameDiscoverer parameterNameDiscoverer = new DefaultParameterNameDiscoverer();
+        Class<MyDefaultListableBeanFactory> beanFactoryClass = MyDefaultListableBeanFactory.class;
+        Method[] declaredMethods = beanFactoryClass.getDeclaredMethods();
+        log.info("declaredMethods={};", Arrays.asList(declaredMethods));
+
+        log.info("+++method_parameter:");
+        for (Method method : declaredMethods) {
+
+            Class<?>[] parameterTypes = method.getParameterTypes();
+            Class<?> returnType = method.getReturnType();
+            String[] parameterNames = parameterNameDiscoverer.getParameterNames(method);
+            System.out.println("--------");
+            System.out.println("parameterTypes=" + Arrays.asList(parameterTypes) + ";returnType=" + returnType);
+            System.out.println(method + ";parameterNames:" + Arrays.asList(parameterNames));
+        }
+
 
     }
 

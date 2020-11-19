@@ -3,23 +3,19 @@ package com.wjt.config;
 import com.alibaba.druid.pool.DruidDataSource;
 import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.SqlSessionFactoryBean;
-import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.mybatis.spring.mapper.MyMapperScannerConfigurer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProcessor;
-import org.springframework.context.annotation.*;
+import org.springframework.context.annotation.AdviceMode;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ImportResource;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
-import org.springframework.core.env.Environment;
-import org.springframework.core.env.MapPropertySource;
-import org.springframework.core.env.MutablePropertySources;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.stereotype.Repository;
-import org.springframework.test.annotation.ProfileValueSourceConfiguration;
-import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
@@ -34,10 +30,10 @@ import java.io.IOException;
 @Slf4j
 @Configuration
 @EnableTransactionManagement(proxyTargetClass = true, mode = AdviceMode.PROXY)
-@ImportResource(locations = {"classpath:dao/mybatis_spring.xml"})
+//@ImportResource(locations = {"classpath:dao/mybatis_spring.xml"})
 //@ActiveProfiles(profiles = {"dev"})
-//@PropertySource(value = {"classpath:dao/jdbc.properties"})
-public class DBConfig {
+@PropertySource(value = {"classpath:dao/jdbc.properties"})
+public class DBConfigParam {
 
 
 /*
@@ -116,30 +112,29 @@ public class DBConfig {
 
 
 */
-/*
-    @Bean
-    public DataSourceConfig dataSourceConfig() {
-        return new DataSourceConfig();
-    }
+
 
     @Bean
-    public DataSource dataSource(@Autowired DataSourceConfig dataSourceConfig) {
-        log.info("dataSourceConfig={};", dataSourceConfig);
+    public DataSource dataSource(@Value("${driverClassName}") String driverClassName, @Value("${wjt_train_jdbc_url}") String jdbcUrl,
+                                 @Value("${username}") String username, @Value("${password}") String password,
+                                 @Value("${max_active}") int maxActive, @Value("${min_idle}") int minIdle,
+                                 @Value("${default_auto_commit}") boolean defaultAutoCommit,
+                                 @Value("${query_timeout}") int queryTimeout) {
+        //public DataSource dataSource(@Autowired DataSourceConfig dataSourceConfig) {
+        //log.info("dataSourceConfig={};", dataSourceConfig);
         //log.info("driverClassName={};jdbcUrl={};", driverClassName, jdbcUrl);
         DruidDataSource dataSource = new DruidDataSource();
-        dataSource.setDriverClassName(dataSourceConfig.driverClassName);
-        dataSource.setUrl(dataSourceConfig.jdbcUrl);
-        dataSource.setUsername(dataSourceConfig.username);
-        dataSource.setPassword(dataSourceConfig.password);
-        dataSource.setMaxActive(dataSourceConfig.maxActive);
-        dataSource.setMinIdle(dataSourceConfig.minIdle);
-        dataSource.setDefaultAutoCommit(dataSourceConfig.defaultAutoCommit);
-        dataSource.setQueryTimeout(dataSourceConfig.queryTimeout);
+        dataSource.setDriverClassName(driverClassName);
+        dataSource.setUrl(jdbcUrl);
+        dataSource.setUsername(username);
+        dataSource.setPassword(password);
+        dataSource.setMaxActive(maxActive);
+        dataSource.setMinIdle(minIdle);
+        dataSource.setDefaultAutoCommit(defaultAutoCommit);
+        dataSource.setQueryTimeout(queryTimeout);
         log.info("dataSource={};", dataSource);
         return dataSource;
     }
-*//*
-
 
 
     @Bean(value = "sqlSessionFactoryBean")
@@ -176,14 +171,13 @@ public class DBConfig {
         return dataSourceTransactionManager;
     }
 
-    */
-/**
-     * 要想使用@Value 用${}占位符注入属性，这个bean是必须的，这个就是占位bean,另一种方式是不用value直接用Envirment变量直接getProperty('key');
+
+    /*     * 要想使用@Value 用${}占位符注入属性，这个bean是必须的，这个就是占位bean,另一种方式是不用value直接用Envirment变量直接getProperty('key');
      * 警告: Cannot enhance @Configuration bean definition 'DBConfig' since its singleton instance has been created too early.
      * The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
      *
      * @return
-     *//*
+     */
 
 
     @Bean
@@ -193,7 +187,6 @@ public class DBConfig {
         log.info("propertySourcesPlaceholderConfigurer={};", propertySourcesPlaceholderConfigurer);
         return propertySourcesPlaceholderConfigurer;
     }
-*/
 
 
 }

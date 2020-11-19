@@ -54,7 +54,7 @@ public class ServiceConfigTest {
 /*        okHttpClient = applicationContext.getBean(OkHttpClient.class);
         jsoupService = applicationContext.getBean(JsoupService.class);*/
 
-        //this.jueJinService = applicationContext.getBean(JueJinService.class);
+        this.jueJinService = applicationContext.getBean(JueJinService.class);
 
         log.info("applicationContext={};jueJinService={};okHttpClient={};jsoupService={};", applicationContext, jueJinService, okHttpClient, jsoupService);
 
@@ -69,6 +69,18 @@ public class ServiceConfigTest {
 
     @After
     public void destroy() {
+    }
+
+    @Test
+    public void save() {
+        String url = "http://bbs.xjtu.edu.cn/BMY_B/home?B=PieBridge";
+        log.info("start ...");
+        jueJinService.getJuejinArticles(url);
+
+        log.info("getJuejinArticles_finish!");
+
+        ConfigurableListableBeanFactory beanFactory = this.applicationContext.getBeanFactory();
+        //beanFactory.addBeanPostProcessor();
     }
 
     @Test
@@ -94,17 +106,7 @@ public class ServiceConfigTest {
 
     }
 
-    @Test
-    public void save() {
-        String url = "http://bbs.xjtu.edu.cn/BMY_B/home?B=PieBridge";
-        log.info("start ...");
-        jueJinService.getJuejinArticles(url);
 
-        log.info("getJuejinArticles_finish!");
-
-        ConfigurableListableBeanFactory beanFactory = this.applicationContext.getBeanFactory();
-        //beanFactory.addBeanPostProcessor();
-    }
 
     @Test
     public void getBeanNamesForType() {

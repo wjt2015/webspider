@@ -456,7 +456,7 @@ public class MyDefaultListableBeanFactory extends AbstractMyAutowireCapableBeanF
                                     !requiresEagerInitForType(mbd.getFactoryBeanName()))) {
                         // In case of FactoryBean, match object created by FactoryBean.
                         boolean isFactoryBean = isFactoryBean(beanName, mbd);
-                        BeanDefinitionHolder dbd = mbd.getDecoratedDefinition();
+                         BeanDefinitionHolder dbd = mbd.getDecoratedDefinition();
                         boolean matchFound =
                                 (allowEagerInit || !isFactoryBean ||
                                         (dbd != null && !mbd.isLazyInit()) || containsSingleton(beanName)) &&

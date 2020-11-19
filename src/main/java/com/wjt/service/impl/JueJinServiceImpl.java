@@ -13,6 +13,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.MyJedis;
@@ -27,7 +28,8 @@ import java.util.stream.Collectors;
 @Service
 public class JueJinServiceImpl implements JueJinService {
 
-    @Resource
+    //@Resource
+    @Autowired
     private JuejinArticleMapper juejinArticleMapper;
 
     @Resource
