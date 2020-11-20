@@ -1,6 +1,7 @@
 package com.wjt.config;
 
 import com.google.common.collect.Lists;
+import com.wjt.aspect.DBAspect;
 import com.wjt.dao.JuejinArticleMapper;
 import com.wjt.model.JuejinArticleEntity;
 import com.wjt.service.impl.ExistCheckerImpl;
@@ -75,7 +76,8 @@ public class DBConfigTest {
     public void init() {
 
         //applicationContext = new MyAnnotationConfigApplicationContext(DBConfig.class);
-        applicationContext = new MyAnnotationConfigApplicationContext(DBConfigParam.class);
+        applicationContext = new MyAnnotationConfigApplicationContext(DBConfig.class);
+        //applicationContext = new MyAnnotationConfigApplicationContext(DBConfigParam.class);
 
         //applicationContext = new MyAnnotationConfigApplicationContext(DBConfigBasedAnnotation.class);
         //applicationContext.register(DBConfig.class);

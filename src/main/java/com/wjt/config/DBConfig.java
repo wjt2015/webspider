@@ -35,6 +35,7 @@ import java.io.IOException;
 @Configuration
 @EnableTransactionManagement(proxyTargetClass = true, mode = AdviceMode.PROXY)
 @ImportResource(locations = {"classpath:dao/mybatis_spring.xml"})
+@Import(value = {AopConfig.class})
 //@ActiveProfiles(profiles = {"dev"})
 //@PropertySource(value = {"classpath:dao/jdbc.properties"})
 public class DBConfig {
@@ -178,12 +179,12 @@ public class DBConfig {
 
     */
 /**
-     * 要想使用@Value 用${}占位符注入属性，这个bean是必须的，这个就是占位bean,另一种方式是不用value直接用Envirment变量直接getProperty('key');
-     * 警告: Cannot enhance @Configuration bean definition 'DBConfig' since its singleton instance has been created too early.
-     * The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
-     *
-     * @return
-     *//*
+ * 要想使用@Value 用${}占位符注入属性，这个bean是必须的，这个就是占位bean,另一种方式是不用value直接用Envirment变量直接getProperty('key');
+ * 警告: Cannot enhance @Configuration bean definition 'DBConfig' since its singleton instance has been created too early.
+ * The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+ *
+ * @return
+ *//*
 
 
     @Bean
