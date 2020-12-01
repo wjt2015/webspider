@@ -38,6 +38,8 @@ import org.springframework.core.env.StandardEnvironment;
 import org.springframework.core.io.support.ResourcePropertySource;
 import org.springframework.util.ClassUtils;
 import org.springframework.util.ReflectionUtils;
+import org.xbill.DNS.AAAARecord;
+import org.xbill.DNS.DNSKEYRecord;
 
 import javax.annotation.Resource;
 import java.beans.PropertyDescriptor;
@@ -49,6 +51,9 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.lang.reflect.Proxy;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.net.UnknownHostException;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
@@ -271,6 +276,19 @@ public class DBConfigTest {
         }
 
 
+
+
+    }
+
+    @Test
+    public void inetAddress() throws UnknownHostException {
+
+
+        InetAddress[] allByName = InetAddress.getAllByName("wwww.baidu.com");
+        log.info("allByName={};",Arrays.asList(allByName));
+
+        allByName = InetAddress.getAllByName("wwww.jd.com");
+        log.info("allByName={};",Arrays.asList(allByName));
     }
 
 
@@ -307,6 +325,13 @@ public class DBConfigTest {
 
         }
         return null;
+    }
+
+    @Test
+    public void dns(){
+        AAAARecord aaaaRecord;
+
+
     }
 
 
