@@ -14,7 +14,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <!-- 编译时的编码 -->
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
-        <spring.version>4.3.8.RELEASE</spring.version>
+        <spring.version>5.2.20.RELEASE</spring.version>
        <!-- <spring.version>4.3.8.RELEASE</spring.version>-->
 
 <!--        &lt;!&ndash;指定jdk版本号;和plugin内的指定方法效果相同;&ndash;&gt;
